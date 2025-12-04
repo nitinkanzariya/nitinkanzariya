@@ -1,0 +1,365 @@
+{
+  "hero": {
+    "status": "Available for Freelance Projects",
+    "title": {
+      "line1": "Full Stack Developer &",
+      "line2": "AI RAG Chatbot Engineer"
+    },
+    "description": "I build scalable web applications and intelligent AI agents that transform how businesses interact with technology.",
+    "buttons": {
+      "primary": {
+        "text": "View Projects",
+        "link": "#projects"
+      },
+      "secondary": {
+        "text": "Contact Me",
+        "link": "#contact"
+      }
+    },
+    "techIcons": [
+      { "label": "Web Development", "icon": "Code" },
+      { "label": "AI Solutions", "icon": "Brain" }
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1760551733698-8e4a497d40d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjQ4Njc5NTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "alt": "Nitin Kanzariya - Full Stack Developer"
+    },
+    "floatingCards": [
+      { "text": "10+ Projects", "color": "green" },
+      { "text": "AI Expert", "color": "blue" }
+    ]
+  },
+  "about": {
+    "sectionTitle": "About Me",
+    "headline": "Crafting Digital Excellence",
+    "stats": [
+      { "label": "Years Experience", "value": "2+", "icon": "Briefcase" },
+      { "label": "Projects Completed", "value": "6+", "icon": "Award" },
+      { "label": "Client Satisfaction", "value": "100%", "icon": "TrendingUp" }
+    ],
+    "bio": {
+      "name": "Nitin Kanzariya",
+      "location": "Ahmedabad, India",
+      "paragraphs": [
+        "I'm a passionate Full Stack Developer specializing in building modern, scalable web applications and cutting-edge AI-powered solutions. With expertise spanning React, Next.js, Angular, Node.js, and Python FastAPI, I transform complex challenges into elegant, user-friendly solutions.",
+        "My unique blend of web development mastery and AI expertise allows me to create intelligent applications that leverage RAG (Retrieval-Augmented Generation) chatbots, vector databases, and modern machine learning frameworks. I'm passionate about pushing the boundaries of what's possible with technology."
+      ]
+    },
+    "experiences": [
+      {
+        "company": "iTechOps",
+        "role": "Full Stack Developer",
+        "period": "Aug 2024 - Present",
+        "color": "from-blue-500 to-cyan-500"
+      },
+      {
+        "company": "Sarola Infotech",
+        "role": "React Developer",
+        "period": "Jun 2023 - Jul 2024",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "company": "Sarola Infotech",
+        "role": "React Intern",
+        "period": "Dec 2022 - May 2023",
+        "color": "from-indigo-500 to-purple-500"
+      }
+    ],
+    "strengths": [
+      "Expertise in building RAG-powered AI chatbots",
+      "Full-stack development with modern frameworks",
+      "Real-time systems with SignalR & WebSockets",
+      "Scalable API architecture & microservices",
+      "Modern UI/UX with animations"
+    ]
+  },
+  "skills": {
+    "sectionTitle": "Skills & Expertise",
+    "headline": "Technical Arsenal",
+    "description": "A comprehensive toolkit for building modern, scalable, and intelligent applications",
+    "categories": [
+      {
+        "title": "Frontend Development",
+        "icon": "Code2",
+        "color": "from-blue-500 to-cyan-500",
+        "items": [
+          { "name": "React", "level": 95 },
+          { "name": "Next.js", "level": 90 },
+          { "name": "Angular", "level": 85 },
+          { "name": "Tailwind CSS", "level": 95 },
+          { "name": "Material UI", "level": 85 },
+          { "name": "TypeScript", "level": 90 }
+        ]
+      },
+      {
+        "title": "Backend Development",
+        "icon": "Database",
+        "color": "from-purple-500 to-pink-500",
+        "items": [
+          { "name": "Node.js", "level": 90 },
+          { "name": "FastAPI (Python)", "level": 85 },
+          { "name": ".NET Core", "level": 80 },
+          { "name": "MongoDB", "level": 85 },
+          { "name": "MySQL", "level": 80 },
+          { "name": "REST APIs", "level": 95 }
+        ]
+      },
+      {
+        "title": "AI & Data",
+        "icon": "Brain",
+        "color": "from-indigo-500 to-purple-500",
+        "items": [
+          { "name": "LangChain", "level": 90 },
+          { "name": "RAG Pipelines", "level": 85 },
+          { "name": "Vector Databases", "level": 80 },
+          { "name": "OpenAI APIs", "level": 90 },
+          { "name": "Python", "level": 85 },
+          { "name": "Firebase", "level": 85 }
+        ]
+      },
+      {
+        "title": "Tools & Other",
+        "icon": "Wrench",
+        "color": "from-orange-500 to-red-500",
+        "items": [
+          { "name": "Git & GitHub", "level": 95 },
+          { "name": "Webpack", "level": 80 },
+          { "name": "SignalR", "level": 85 },
+          { "name": "Agile/Scrum", "level": 90 },
+          { "name": "Docker", "level": 75 },
+          { "name": "Flutter", "level": 70 }
+        ]
+      }
+    ],
+    "otherSkills": [
+      "Redux", "GraphQL", "WebSockets", "Redis", "Elasticsearch", "CI/CD",
+      "AWS", "Vercel", "Slack API", "Figma", "Jira", "Postman"
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Portfolio",
+    "headline": "Featured Projects",
+    "description": "A showcase of innovative solutions combining cutting-edge technology with elegant design",
+    "items": [
+      {
+        "title": "RAG ChatBot",
+        "description": "Full-stack AI-powered chatbot with customizable LLM model switching, personalized data stores, file upload during chat, and vector database integration for semantic search and context retrieval.",
+        "image": "https://images.unsplash.com/photo-1708373100061-f75279dbaa7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhaSUyMGFydGlmaWNpYWwlMjBpbnRlbGxpZ2VuY2V8ZW58MXx8fHwxNzY0ODI0OTg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": ["Next.js", "Python", "FastAPI", "LangChain", "Vector DB", "MongoDB"],
+        "gradient": "from-blue-500 to-cyan-500"
+      },
+      {
+        "title": "MUFASA",
+        "description": "Full-stack stock and trading management system with Microsoft Outlook integration, dynamic email tagging, responsive dashboards for real-time insights, and optimized MySQL database schemas.",
+        "image": "https://images.unsplash.com/photo-1579225663317-c0251b4369bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9jayUyMHRyYWRpbmclMjBjaGFydHxlbnwxfHx8fDE3NjQ4Njc5NTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": ["Angular", "Node.js", "MySQL", "REST API", "Outlook API"],
+        "gradient": "from-purple-500 to-pink-500"
+      },
+      {
+        "title": "Status Page",
+        "description": "Real-time notification system with SignalR, Slack slash commands, RBAC, custom RAG chatbot for system queries, dynamic dashboard with customizable charts, and multi-channel alerts (email, SMS, push).",
+        "image": "https://images.unsplash.com/photo-1651684195895-38708dc94cfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBsYXB0b3B8ZW58MXx8fHwxNzY0ODYxMzk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": [".NET Core 6", "Angular 14", "SignalR", "SQL Server", "Slack API"],
+        "gradient": "from-indigo-500 to-purple-500"
+      },
+      {
+        "title": "Connection AI",
+        "description": "Pharma-related chat and PDF management platform with document upload, data extraction, Redux Thunk for state management, and seamless API integration for real-time updates.",
+        "image": "https://images.unsplash.com/photo-1585435557343-3b092031a831?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaGFybWElMjBoZWFsdGhjYXJlfGVufDF8fHx8MTc2NDg2Nzk1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": ["Next.js", "Tailwind CSS", "Redux Thunk", "PDF Processing"],
+        "gradient": "from-cyan-500 to-teal-500"
+      },
+      {
+        "title": "Photo Gallery",
+        "description": "Cloud-based photo-sharing platform with Google OAuth, following friends, private/public uploads, real-time chat, photo/video editing, likes, nested comments, and Instagram-like engagement features.",
+        "image": "https://images.unsplash.com/photo-1591626282140-8ad79731e858?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90byUyMGdhbGxlcnklMjBzb2NpYWx8ZW58MXx8fHwxNzY0ODY3OTU4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": ["Next.js", "Firebase", "Tailwind CSS", "Google OAuth", "Real-time Chat"],
+        "gradient": "from-orange-500 to-red-500"
+      },
+      {
+        "title": "Hospital Management System",
+        "description": "Cross-platform healthcare app for patients and doctors with appointment scheduling, medical records, health reporting, real-time chat, and Firebase Cloud Firestore synchronization.",
+        "image": "https://images.unsplash.com/photo-1654762930571-dcf2ebc11542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3NwaXRhbCUyMG1lZGljYWwlMjB0ZWNofGVufDF8fHx8MTc2NDg2Nzk1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "tags": ["Flutter", "Firebase", "Google Auth", "Cloud Firestore", "Realtime DB"],
+        "gradient": "from-green-500 to-teal-500"
+      }
+    ],
+    "cta": "View All Projects"
+  },
+  "services": {
+    "sectionTitle": "Services",
+    "headline": "What I Offer",
+    "description": "Comprehensive development services to bring your digital vision to life",
+    "items": [
+      {
+        "title": "Full Stack Web Development",
+        "description": "End-to-end web application development using modern technologies like React, Next.js, Angular, Node.js, and .NET. Scalable, performant, and maintainable solutions.",
+        "features": ["Responsive Design", "API Integration", "Database Design", "Cloud Deployment"],
+        "gradient": "from-blue-500 to-cyan-500",
+        "icon": "Code"
+      },
+      {
+        "title": "AI RAG Chatbot Development",
+        "description": "Intelligent conversational AI solutions with Retrieval-Augmented Generation, vector databases, and custom knowledge bases for enhanced user engagement.",
+        "features": ["LangChain Integration", "Custom Training", "Vector Search", "Multi-modal Support"],
+        "gradient": "from-purple-500 to-pink-500",
+        "icon": "Brain"
+      },
+      {
+        "title": "Website Design with Animation",
+        "description": "Modern, eye-catching websites with smooth animations, micro-interactions, and glassmorphism effects that captivate users and elevate brand presence.",
+        "features": ["Motion Design", "UI/UX Design", "Brand Identity", "Interactive Elements"],
+        "gradient": "from-orange-500 to-red-500",
+        "icon": "Palette"
+      },
+      {
+        "title": "API & Backend Architecture",
+        "description": "Robust backend systems with RESTful APIs, microservices, real-time communication, and optimized database structures for high-performance applications.",
+        "features": ["REST/GraphQL APIs", "Microservices", "Real-time Updates", "Performance Optimization"],
+        "gradient": "from-indigo-500 to-purple-500",
+        "icon": "Database"
+      }
+    ],
+    "cta": {
+      "headline": "Ready to Start Your Project?",
+      "description": "Let's collaborate to create something exceptional. Whether you need a complete web application, an AI-powered solution, or just want to discuss your ideas, I'm here to help.",
+      "button": "Get in Touch"
+    }
+  },
+  "experience": {
+    "sectionTitle": "Experience",
+    "headline": "Professional Journey",
+    "description": "My career progression and key achievements in software development",
+    "items": [
+      {
+        "company": "iTechOps",
+        "role": "Full Stack Developer",
+        "period": "Aug 2024 - Present",
+        "location": "Ahmedabad, Gujarat",
+        "description": "Leading full-stack development with focus on AI-powered applications and real-time monitoring systems.",
+        "achievements": [
+          "Developed AI-powered RAG chatbot with FastAPI, LangChain, and customizable LLM switching",
+          "Built real-time Status Page with SignalR, Slack slash commands, and multi-channel notifications",
+          "Implemented RBAC, dynamic dashboards with customizable charts for system monitoring",
+          "Integrated Python-based RAG chatbot into StatusPage for intelligent system queries"
+        ],
+        "gradient": "from-blue-500 to-cyan-500"
+      },
+      {
+        "company": "Sarola Infotech",
+        "role": "React Developer",
+        "period": "Jun 2023 - Jul 2024",
+        "location": "Barvala, Gujarat",
+        "description": "Developed and maintained web applications using React.js, Next.js, and Tailwind CSS with RESTful API integration.",
+        "achievements": [
+          "Built MUFASA stock trading system with Angular, Node.js, and MySQL",
+          "Implemented React Hooks and Material-UI for dynamic UIs and efficient state management",
+          "Integrated RESTful APIs and optimized data flow with back-end teams",
+          "Conducted code reviews, optimized performance, and resolved application bugs"
+        ],
+        "gradient": "from-purple-500 to-pink-500"
+      },
+      {
+        "company": "Sarola Infotech",
+        "role": "React Intern",
+        "period": "Dec 2022 - May 2023",
+        "location": "Barvala, Gujarat",
+        "description": "Assisted in developing front-end features using React.js and Tailwind CSS while learning industry best practices.",
+        "achievements": [
+          "Developed front-end features using React.js and Tailwind CSS",
+          "Gained hands-on experience with React Hooks and Material-UI",
+          "Worked with senior developers on feature implementation and bug fixing",
+          "Participated in code reviews, team meetings, and followed web development best practices"
+        ],
+        "gradient": "from-indigo-500 to-purple-500"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Maharaja Krishnakumarsinhji Bhavnagar University",
+        "degree": "Master of Science in Information Technology (MSc IT)",
+        "period": "Jun 2021 - May 2023",
+        "location": "Botad, Gujarat"
+      },
+      {
+        "institution": "Maharaja Krishnakumarsinhji Bhavnagar University",
+        "degree": "Bachelor of Computer Application (BCA)",
+        "period": "Jun 2018 - May 2021",
+        "location": "Botad, Gujarat"
+      }
+    ],
+    "resumeCta": "Download Full Resume",
+    "resumeLink": "/NitinKanzariya_Resume.pdf"
+  },
+  "contact": {
+    "sectionTitle": "Get In Touch",
+    "headline": "Let's Build Something Great",
+    "description": "Have a project in mind? Let's discuss how we can work together to bring your ideas to life.",
+    "infoTitle": "Contact Information",
+    "infoItems": [
+      { "label": "Email", "value": "nkanzariya40@gmail.com", "link": "mailto:nkanzariya40@gmail.com", "icon": "Mail" },
+      { "label": "Phone", "value": "+91 7778877805", "link": "tel:+917778877805", "icon": "Phone" },
+      { "label": "Location", "value": "Ahmedabad, Gujarat", "link": "https://maps.google.com/?q=Ahmedabad,Gujarat", "icon": "MapPin" }
+    ],
+    "socialTitle": "Follow me on",
+    "socialLinks": [
+      { "platform": "GitHub", "url": "https://github.com/nitinkanzariya", "icon": "github" },
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/nitinkanzariya", "icon": "linkedin" }
+    ],
+    "form": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Project Inquiry",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "buttonText": "Send Message"
+    },
+    "availability": {
+      "status": "Available for Work",
+      "text": "Currently accepting new projects and freelance opportunities. Let's create something amazing together!"
+    }
+  },
+  "footer": {
+    "logoName": "Nitin Kanzariya",
+    "description": "Full Stack Developer & AI RAG Chatbot Engineer crafting innovative digital solutions.",
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": [
+      { "text": "About", "link": "#about" },
+      { "text": "Skills", "link": "#skills" },
+      { "text": "Projects", "link": "#projects" },
+      { "text": "Services", "link": "#services" },
+      { "text": "Experience", "link": "#experience" },
+      { "text": "Contact", "link": "#contact" }
+    ],
+    "contactInfoTitle": "Get In Touch",
+    "contactInfo": {
+      "location": "Ahmedabad, Gujarat",
+      "email": "nkanzariya40@gmail.com",
+      "phone": "+91 7778877805"
+    },
+    "copyright": "2025 Nitin Kanzariya.",
+    "madeWith": {
+      "text": "Made with",
+      "and": "and"
+    },
+    "techStack": "Built with React, Tailwind CSS & Motion"
+  },
+  "navbar": {
+    "logoName": "Nitin Kanzariya",
+    "links": [
+      { "text": "About", "link": "#about" },
+      { "text": "Skills", "link": "#skills" },
+      { "text": "Projects", "link": "#projects" },
+      { "text": "Services", "link": "#services" },
+      { "text": "Experience", "link": "#experience" },
+      { "text": "Contact", "link": "#contact" }
+    ],
+    "cta": {
+      "text": "Let's Talk",
+      "link": "#contact"
+    }
+  }
+}
