@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "./ImageWithFallback";
 import content from "../data/content.json";
 
 export function Projects() {
   const { projects } = content;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const displayedProjects = isExpanded
+    ? projects.items
+    : projects.items.slice(0, 3);
 
   return (
     <section id="projects" className="relative py-24 overflow-hidden">
@@ -30,7 +35,7 @@ export function Projects() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.items.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
@@ -54,24 +59,30 @@ export function Projects() {
 
                   {/* Overlay with buttons - always visible on mobile/tablet, hover on desktop */}
                   <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-4">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Add your live demo link logic here
-                      }}
-                      className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
-                    >
-                      <ExternalLink className="w-5 h-5 text-white" />
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        // Add your github link logic here
-                      }}
-                      className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
-                    >
-                      <Github className="w-5 h-5 text-white" />
-                    </button>
+                    {project.websiteLink && (
+                      <a
+                        href={project.websiteLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                        onClick={(e) => e.stopPropagation()}
+                        title="View Live Demo"
+                      >
+                        <ExternalLink className="w-5 h-5 text-white" />
+                      </a>
+                    )}
+                    {project.githubLink && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                        onClick={(e) => e.stopPropagation()}
+                        title="View Source Code"
+                      >
+                        <Github className="w-5 h-5 text-white" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -107,8 +118,17 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-12 flex flex-col items-center gap-6"
         >
+          {projects.items.length > 3 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-blue-400 hover:text-blue-300 transition-colors focus:outline-none font-medium"
+            >
+              {isExpanded ? "Show Less" : "Show More Projects..."}
+            </button>
+          )}
+
           <Link
             to="/projects"
             className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"

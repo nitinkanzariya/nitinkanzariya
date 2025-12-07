@@ -3,7 +3,7 @@ import { MapPin, Briefcase, Award, TrendingUp } from "lucide-react";
 import content from "../data/content.json";
 
 export function About() {
-  const { about } = content;
+  const { about, experience } = content;
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -103,7 +103,7 @@ export function About() {
           >
             <h3 className="text-white mb-6">Professional Journey</h3>
 
-            {about.experiences.map((exp, index) => (
+            {experience.items.slice(0, 3).map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ export function About() {
                 </div>
 
                 <div
-                  className={`h-1 rounded-full bg-linear-to-r ${exp.color}`}
+                  className={`h-1 rounded-full bg-linear-to-r ${exp.gradient}`}
                 />
               </motion.div>
             ))}

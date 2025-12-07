@@ -25,6 +25,7 @@ A modern, premium portfolio website showcasing my skills, projects, and experien
 | ----------------- | ------------------------------------ |
 | **Frontend**      | React 19, TypeScript, Tailwind CSS 4 |
 | **Build Tool**    | Vite 7                               |
+| **Routing**       | React Router DOM                     |
 | **Animations**    | Motion (Framer Motion)               |
 | **UI Components** | Radix UI Primitives                  |
 | **Icons**         | Lucide React                         |
@@ -37,23 +38,20 @@ portfolio/
 ├── public/
 │   └── NitinKanzariya_Resume.pdf    # Downloadable resume
 ├── src/
-│   ├── components/                   # React components
+│   ├── components/                   # Reusable UI components
 │   │   ├── Navbar.tsx
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Skills.tsx
-│   │   ├── Projects.tsx
-│   │   ├── Services.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Contact.tsx
-│   │   └── Footer.tsx
+│   │   ├── ...
+│   ├── pages/                        # Page components (Routes)
+│   │   ├── Home.tsx
+│   │   ├── AllProjects.tsx
+│   │   ├── AllExperience.tsx
 │   ├── data/
 │   │   └── content.json              # All portfolio content (easily editable)
 │   ├── styles/
 │   │   └── globals.css               # Global styles
 │   ├── lib/
 │   │   └── utils.ts                  # Utility functions
-│   ├── App.tsx                       # Main app component
+│   ├── App.tsx                       # Main app with Routing
 │   ├── main.tsx                      # Entry point
 │   └── index.css                     # Tailwind imports
 ├── index.html

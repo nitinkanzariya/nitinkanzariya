@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { ImageWithFallback } from "../components/ImageWithFallback";
 import content from "../data/content.json";
 
 export function AllProjects() {
@@ -31,7 +31,7 @@ export function AllProjects() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-5xl mx-auto space-y-20">
         {projects.items.map((project, index) => (
           <motion.div
             key={project.title}
@@ -41,46 +41,77 @@ export function AllProjects() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="group"
           >
-            <div className="glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all h-full flex flex-col">
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
+            <div className="glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all flex flex-col md:flex-row">
+              {/* Image Section - Larger / Side by Side */}
+              <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity`}
                 />
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-4">
-                  <button className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform">
-                    <ExternalLink className="w-5 h-5 text-white" />
-                  </button>
-                  <button className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform">
-                    <Github className="w-5 h-5 text-white" />
-                  </button>
+                {/* Overlay Links */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 backdrop-blur-sm">
+                  {project.websiteLink && (
+                    <a
+                      href={project.websiteLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform bg-white/10 hover:bg-white/20"
+                      title="View Live Demo"
+                    >
+                      <ExternalLink className="w-6 h-6 text-white" />
+                    </a>
+                  )}
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform bg-white/10 hover:bg-white/20"
+                      title="View Source Code"
+                    >
+                      <Github className="w-6 h-6 text-white" />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-white mb-3 group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">
-                  {project.description}
-                </p>
+              {/* Content Section */}
+              <div className="p-8 md:p-10 flex-1 flex flex-col justify-center relative min-h-[300px]">
+                {/* Decorative background blur */}
+                <div
+                  className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${project.gradient} opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}
+                />
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="relative z-10">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-6">
+                    <div
+                      className={`h-1.5 w-full rounded-full bg-linear-to-r ${project.gradient}`}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
