@@ -165,7 +165,7 @@ The portfolio features:
 **Nitin Kanzariya**
 
 - 📧 Email: [nkanzariya40@gmail.com](mailto:nkanzariya40@gmail.com)
-- 📱 Phone: [+91 7778877805](tel:+917778877805)
+- 📱 Phone: [+91 77**\* **805](tel:+9177*****805)
 - 💼 LinkedIn: [linkedin.com/in/nitinkanzariya](https://linkedin.com/in/nitinkanzariya)
 - 🐙 GitHub: [github.com/nitinkanzariya](https://github.com/nitinkanzariya)
 - 📍 Location: Ahmedabad, Gujarat, India

@@ -12,9 +12,9 @@ export function Footer() {
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Description */}
-          <div>
+          <div className="col-span-1 md:col-span-1">
             <motion.a
               href="#"
               className="flex items-center gap-2 group mb-4"
@@ -28,45 +28,48 @@ export function Footer() {
             <p className="text-slate-400 text-sm mb-4">{footer.description}</p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h5 className="text-white mb-4">{footer.quickLinksTitle}</h5>
-            <ul className="space-y-2">
-              {footer.quickLinks.map((link) => (
-                <li key={link.link}>
+          {/* Quick Links & Contact Info - Side by side on mobile */}
+          <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+            {/* Quick Links */}
+            <div>
+              <h5 className="text-white mb-4">{footer.quickLinksTitle}</h5>
+              <ul className="space-y-2">
+                {footer.quickLinks.map((link) => (
+                  <li key={link.link}>
+                    <a
+                      href={link.link}
+                      className="text-slate-400 hover:text-white text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
+                    >
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h5 className="text-white mb-4">{footer.contactInfoTitle}</h5>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li>{footer.contactInfo.location}</li>
+                <li>
                   <a
-                    href={link.link}
-                    className="text-slate-400 hover:text-white text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
+                    href={`mailto:${footer.contactInfo.email}`}
+                    className="hover:text-white transition-colors break-all"
                   >
-                    {link.text}
+                    {footer.contactInfo.email}
                   </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h5 className="text-white mb-4">{footer.contactInfoTitle}</h5>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>{footer.contactInfo.location}</li>
-              <li>
-                <a
-                  href={`mailto:${footer.contactInfo.email}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {footer.contactInfo.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${footer.contactInfo.phone}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {footer.contactInfo.phone}
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a
+                    href={`tel:${footer.contactInfo.phone}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {footer.contactInfo.phone}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

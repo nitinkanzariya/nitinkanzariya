@@ -72,7 +72,7 @@ export function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {about.stats.map((stat, index) => {
                 const Icon = getIcon(stat.icon);
                 return (

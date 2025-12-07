@@ -91,7 +91,7 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="glass-strong rounded-3xl p-8 border border-white/10">
+            <div className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10">
               <h3 className="text-white mb-6">{contact.infoTitle}</h3>
               <div className="space-y-6">
                 {contact.infoItems.map((info) => {
@@ -122,21 +122,30 @@ export function Contact() {
               <div className="mt-8 pt-8 border-t border-white/10">
                 <p className="text-slate-400 mb-4">{contact.socialTitle}</p>
                 <div className="flex gap-3">
-                  {contact.socialLinks.map((social) => (
-                    <motion.a
-                      key={social.platform}
-                      href={social.url}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="w-12 h-12 rounded-xl glass border border-white/10 flex items-center justify-center hover:border-white/20 transition-all group"
-                      aria-label={social.platform}
-                    >
-                      <img
-                        src={`https://cdn.simpleicons.org/${social.icon}`}
-                        alt={social.platform}
-                        className="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity invert"
-                      />
-                    </motion.a>
-                  ))}
+                  {contact.socialLinks.map((social) => {
+                    const SocialIcon = getIcon(
+                      social.icon === "github"
+                        ? "Github"
+                        : social.icon === "linkedin"
+                        ? "Linkedin"
+                        : social.icon === "twitter"
+                        ? "Twitter"
+                        : "Instagram"
+                    );
+                    return (
+                      <motion.a
+                        key={social.platform}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        className="w-12 h-12 rounded-xl glass border border-white/10 flex items-center justify-center hover:border-white/20 transition-all group"
+                        aria-label={social.platform}
+                      >
+                        <SocialIcon className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+                      </motion.a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -147,7 +156,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-strong rounded-3xl p-8 border border-white/10"
+              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
@@ -170,7 +179,7 @@ export function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-strong rounded-3xl p-8 border border-white/10"
+              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10"
             >
               <div className="space-y-6">
                 {/* Name */}

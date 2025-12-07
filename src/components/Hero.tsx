@@ -60,7 +60,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
               <span className="text-white">{hero.title.line1}</span>
               <br />
@@ -71,7 +71,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-slate-400 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl"
             >
               {hero.description}
             </motion.p>
@@ -80,18 +80,18 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-4"
             >
               <a
                 href={hero.buttons.primary.link}
-                className="group px-8 py-4 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-xl hover:shadow-purple-500/50 transition-all flex items-center gap-2"
+                className="group px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 {hero.buttons.primary.text}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href={hero.buttons.secondary.link}
-                className="px-8 py-4 rounded-full glass border border-white/20 text-white hover:bg-white/10 transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/10 transition-all text-center text-sm sm:text-base"
               >
                 {hero.buttons.secondary.text}
               </a>
@@ -102,20 +102,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-6 pt-8"
+              className="flex flex-wrap items-center gap-4 sm:gap-6 pt-8"
             >
               {hero.techIcons.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <div className="flex items-center gap-2 text-slate-400">
+                  <div className="flex items-center gap-2 text-slate-400 text-sm sm:text-base">
                     {item.icon === "Code" ? (
-                      <Code className="w-5 h-5 text-blue-400" />
+                      <Code className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                     ) : (
-                      <Brain className="w-5 h-5 text-purple-400" />
+                      <Brain className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
                     )}
                     <span>{item.label}</span>
                   </div>
                   {index < hero.techIcons.length - 1 && (
-                    <div className="w-px h-8 bg-white/10 ml-6" />
+                    <div className="hidden sm:block w-px h-8 bg-white/10 ml-4 sm:ml-6" />
                   )}
                 </div>
               ))}
@@ -146,7 +146,7 @@ export function Hero() {
               {hero.floatingCards.map((card, index) => (
                 <motion.div
                   key={index}
-                  className={`absolute ${
+                  className={`hidden md:block absolute ${
                     index === 0 ? "-right-4 top-1/4" : "-left-4 bottom-1/4"
                   } glass px-4 py-3 rounded-xl border border-white/10 shadow-xl`}
                   animate={{ y: index === 0 ? [0, -10, 0] : [0, 10, 0] }}

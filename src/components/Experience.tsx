@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Briefcase, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 import content from "../data/content.json";
 
 export function Experience() {
@@ -41,9 +42,7 @@ export function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className={`relative mb-16 ${
-                  index % 2 === 0
-                    ? "md:pr-1/2 md:text-right"
-                    : "md:pl-1/2 md:ml-auto"
+                  index % 2 === 0 ? "md:pr-1/2" : "md:pl-1/2 md:ml-auto"
                 } md:w-1/2`}
               >
                 {/* Timeline Dot */}
@@ -64,15 +63,11 @@ export function Experience() {
                 <div className="ml-8 md:ml-0 glass-strong rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all group">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
-                    <div
-                      className={`${
-                        index % 2 === 0 ? "md:text-right" : ""
-                      } flex-1`}
-                    >
+                    <div className="flex-1">
                       <h3 className="text-white group-hover:text-blue-400 transition-colors mb-2">
                         {item.role}
                       </h3>
-                      <div className="flex items-center gap-2 text-slate-400 mb-1 justify-start md:justify-end">
+                      <div className="flex items-center gap-2 text-slate-400 mb-1">
                         <Briefcase className="w-4 h-4" />
                         <span>{item.company}</span>
                       </div>
@@ -80,36 +75,19 @@ export function Experience() {
                         {item.location}
                       </div>
                     </div>
-                    <div
-                      className={`flex items-center gap-2 glass px-4 py-2 rounded-full text-sm ${
-                        index % 2 === 0 ? "md:order-first" : ""
-                      }`}
-                    >
+                    <div className="flex items-center gap-2 glass px-4 py-2 rounded-full text-sm">
                       <Calendar className="w-4 h-4 text-blue-400" />
                       <span className="text-slate-300">{item.period}</span>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p
-                    className={`text-slate-400 mb-4 ${
-                      index % 2 === 0 ? "md:text-right" : ""
-                    }`}
-                  >
-                    {item.description}
-                  </p>
+                  <p className="text-slate-400 mb-4">{item.description}</p>
 
                   {/* Achievements */}
                   <div className="space-y-2">
                     {item.achievements.map((achievement, i) => (
-                      <div
-                        key={i}
-                        className={`flex items-start gap-3 ${
-                          index % 2 === 0
-                            ? "md:flex-row-reverse md:text-right"
-                            : ""
-                        }`}
-                      >
+                      <div key={i} className="flex items-start gap-3">
                         <div
                           className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.gradient} shrink-0`}
                         />
@@ -136,7 +114,7 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-12 flex flex-col md:flex-row items-center justify-center gap-4"
         >
           <a
             href={experience.resumeLink}
@@ -160,6 +138,16 @@ export function Experience() {
               </svg>
             </span>
           </a>
+
+          <Link
+            to="/experience"
+            className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"
+          >
+            <span className="flex items-center gap-2">
+              View Full Experience
+              <Briefcase className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            </span>
+          </Link>
         </motion.div>
       </div>
     </section>

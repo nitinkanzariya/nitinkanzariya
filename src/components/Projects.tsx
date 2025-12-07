@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import content from "../data/content.json";
 
@@ -51,12 +52,24 @@ export function Projects() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
 
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-4">
-                    <button className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 transition-transform">
+                  {/* Overlay with buttons - always visible on mobile/tablet, hover on desktop */}
+                  <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-4">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Add your live demo link logic here
+                      }}
+                      className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                    >
                       <ExternalLink className="w-5 h-5 text-white" />
                     </button>
-                    <button className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 transition-transform">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Add your github link logic here
+                      }}
+                      className="w-10 h-10 rounded-full glass-strong border border-white/20 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                    >
                       <Github className="w-5 h-5 text-white" />
                     </button>
                   </div>
@@ -96,12 +109,15 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <button className="px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group">
+          <Link
+            to="/projects"
+            className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"
+          >
             <span className="flex items-center gap-2">
               {projects.cta}
               <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </span>
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -25,7 +25,7 @@
       "alt": "Nitin Kanzariya - Full Stack Developer"
     },
     "floatingCards": [
-      { "text": "10+ Projects", "color": "green" },
+      { "text": "6+ Projects", "color": "green" },
       { "text": "AI Expert", "color": "blue" }
     ]
   },
@@ -42,7 +42,7 @@
       "location": "Ahmedabad, India",
       "paragraphs": [
         "I'm a passionate Full Stack Developer specializing in building modern, scalable web applications and cutting-edge AI-powered solutions. With expertise spanning React, Next.js, Angular, Node.js, and Python FastAPI, I transform complex challenges into elegant, user-friendly solutions.",
-        "My unique blend of web development mastery and AI expertise allows me to create intelligent applications that leverage RAG (Retrieval-Augmented Generation) chatbots, vector databases, and modern machine learning frameworks. I'm passionate about pushing the boundaries of what's possible with technology."
+        "My unique blend of web development mastery and AI expertise allows me to create intelligent applications that leverage RAG (Retrieval-Augmented Generation) chatbots, vector databases. I'm passionate about pushing the boundaries of what's possible with technology."
       ]
     },
     "experiences": [
@@ -193,7 +193,7 @@
     "items": [
       {
         "title": "Full Stack Web Development",
-        "description": "End-to-end web application development using modern technologies like React, Next.js, Angular, Node.js, and .NET. Scalable, performant, and maintainable solutions.",
+        "description": "End-to-end web application development using modern technologies like React, Next.js, Angular, Node.js,Python FastAPI and .NET. Scalable, performant, and maintainable solutions.",
         "features": ["Responsive Design", "API Integration", "Database Design", "Cloud Deployment"],
         "gradient": "from-blue-500 to-cyan-500",
         "icon": "Code"
