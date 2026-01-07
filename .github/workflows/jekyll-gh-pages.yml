@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Vite builds the project into the 'dist' folder
-          path: './dist'
+          path: './build'
 
   deploy:
     environment:
