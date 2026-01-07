@@ -169,7 +169,7 @@
         "tags": ["Next.js", "Firebase", "Tailwind CSS", "Google OAuth", "Real-time Chat"],
         "gradient": "from-orange-500 to-red-500",
         "websiteLink": "",
-        "githubLink": ""
+        "githubLink": "https://github.com/nitinkanzariya/Reveal-Your-Life"
       },
       {
         "title": "Hospital Management System",
@@ -294,7 +294,15 @@
       }
     ],
     "resumeCta": "Download Full Resume",
-    "resumeLink": "/NitinKanzariya_Resume.pdf"
+    "resumeLink": "/NitinKanzariya_Resume.pdf",
+    "certifications": [
+      {
+        "title": "DP-700: Microsoft Azure Data Engineering",
+        "issuer": "Microsoft",
+        "link": "https://drive.google.com/file/d/18zRvYLG7QprSkJwuteQQLak069Qnfk6O/view?usp=sharing",
+        "gradient": "from-blue-500 to-cyan-500"
+      }
+    ]
   },
   "contact": {
     "sectionTitle": "Get In Touch",
