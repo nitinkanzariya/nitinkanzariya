@@ -1,10 +1,18 @@
 import { motion } from "motion/react";
 import { Code2, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import content from "../data/content.json";
 
 export function Footer() {
   const { footer } = content;
   const currentYear = new Date().getFullYear();
+
+  const getLinkHref = (link: string) => {
+    if (link.startsWith("#")) {
+      return `/${link}`;
+    }
+    return link.startsWith("/") ? link : `/${link}`;
+  };
 
   return (
     <footer className="relative py-12 border-t border-white/10 overflow-hidden">
@@ -15,16 +23,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-1">
-            <motion.a
-              href="#"
-              className="flex items-center gap-2 group mb-4"
-              whileHover={{ scale: 1.05 }}
+            <Link
+              to="/"
+              className="flex items-center gap-2 group mb-4 hover:scale-105 transition-transform transform origin-left"
             >
               <div className="w-10 h-10 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                 <Code2 className="w-6 h-6 text-white" />
               </div>
               <span className="gradient-text">{footer.logoName}</span>
-            </motion.a>
+            </Link>
             <p className="text-slate-400 text-sm mb-4">{footer.description}</p>
           </div>
 
@@ -36,12 +43,12 @@ export function Footer() {
               <ul className="space-y-2">
                 {footer.quickLinks.map((link) => (
                   <li key={link.link}>
-                    <a
-                      href={link.link}
+                    <Link
+                      to={getLinkHref(link.link)}
                       className="text-slate-400 hover:text-white text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
                     >
                       {link.text}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
