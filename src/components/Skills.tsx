@@ -54,16 +54,18 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ amount: 0.2 }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="glass-strong rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all group"
+                className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all group"
               >
                 {/* Header */}
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-6">
                   <div
-                    className={`w-14 h-14 rounded-2xl bg-linear-to-br ${category.color} flex items-center justify-center group-hover:scale-110 transition-transform`}
+                    className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-linear-to-br ${category.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                   >
-                    <Icon className="w-7 h-7 text-white" />
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-white">{category.title}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">
+                    {category.title}
+                  </h3>
                 </div>
 
                 {/* Skills List */}

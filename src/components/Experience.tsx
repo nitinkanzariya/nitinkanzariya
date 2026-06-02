@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Briefcase, Calendar, Award } from "lucide-react";
+import { Briefcase, Calendar, Award, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import content from "../data/content.json";
+import { ResumeModal } from "./ui/ResumeModal";
 
 export function Experience() {
   const { experience } = content;
@@ -33,7 +34,7 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent" />
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-500 via-purple-500 to-transparent" />
 
             {experience.items.map((item, index) => (
               <ExperienceCard key={index} item={item} index={index} />
@@ -65,7 +66,7 @@ export function Experience() {
                     className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all group border border-transparent hover:border-white/5"
                   >
                     <div
-                      className={`p-2 rounded-lg bg-gradient-to-r ${cert.gradient} bg-opacity-20 shrink-0`}
+                      className={`p-2 rounded-lg bg-linear-to-r ${cert.gradient} bg-opacity-20 shrink-0`}
                     >
                       <Award className="w-5 h-5 text-white" />
                     </div>
@@ -92,28 +93,14 @@ export function Experience() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-12 flex flex-col md:flex-row items-center justify-center gap-4"
         >
-          <a
-            href={experience.resumeLink}
-            download="NitinKanzariya_Resume.pdf"
-            className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"
-          >
-            <span className="flex items-center gap-2">
-              {experience.resumeCta}
-              <svg
-                className="w-4 h-4 group-hover:translate-y-1 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                />
-              </svg>
-            </span>
-          </a>
+          <ResumeModal resumeLink={experience.resumeLink}>
+            <button className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group cursor-pointer focus:outline-none">
+              <span className="flex items-center gap-2">
+                <Eye className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                View Resume
+              </span>
+            </button>
+          </ResumeModal>
 
           <Link
             to="/experience"
@@ -152,7 +139,7 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
         whileHover={{ scale: 1.2 }}
         className={`absolute left-0 md:left-auto ${
           index % 2 === 0 ? "md:right-0" : "md:left-0"
-        } top-8 w-4 h-4 rounded-full bg-gradient-to-r ${
+        } top-8 w-4 h-4 rounded-full bg-linear-to-r ${
           item.gradient
         } border-4 border-dark-bg md:translate-x-0 ${
           index % 2 === 0 ? "md:translate-x-1/2" : "md:-translate-x-1/2"
@@ -187,7 +174,7 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
           {displayedAchievements.map((achievement: string, i: number) => (
             <div key={i} className="flex items-start gap-3">
               <div
-                className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.gradient} shrink-0`}
+                className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-linear-to-r ${item.gradient} shrink-0`}
               />
               <span className="text-sm text-slate-300">{achievement}</span>
             </div>
@@ -205,7 +192,7 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
 
         {/* Gradient Line */}
         <div
-          className={`mt-6 h-1 rounded-full bg-gradient-to-r ${item.gradient}`}
+          className={`mt-6 h-1 rounded-full bg-linear-to-r ${item.gradient}`}
         />
       </div>
     </motion.div>

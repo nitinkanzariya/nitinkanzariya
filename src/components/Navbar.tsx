@@ -20,10 +20,10 @@ export function Navbar() {
   }, []);
 
   const getLinkHref = (link: string) => {
-    if (location.pathname === "/" && link.startsWith("#")) {
-      return link;
+    if (link.startsWith("#")) {
+      return `/${link}`;
     }
-    return `/${link}`;
+    return link.startsWith("/") ? link : `/${link}`;
   };
 
   return (
@@ -51,21 +51,21 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navbar.links.map((link) => (
-              <a
+              <Link
                 key={link.link}
-                href={getLinkHref(link.link)}
+                to={getLinkHref(link.link)}
                 className="text-slate-300 hover:text-white transition-colors relative group"
               >
                 {link.text}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-blue-500 to-purple-600 group-hover:w-full transition-all duration-300" />
-              </a>
+              </Link>
             ))}
-            <a
-              href={getLinkHref(navbar.cta.link)}
+            <Link
+              to={getLinkHref(navbar.cta.link)}
               className="px-6 py-2 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all transform hover:scale-105 active:scale-95"
             >
               {navbar.cta.text}
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,22 +89,22 @@ export function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navbar.links.map((link) => (
-                <a
+                <Link
                   key={link.link}
-                  href={getLinkHref(link.link)}
+                  to={getLinkHref(link.link)}
                   className="block text-slate-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.text}
-                </a>
+                </Link>
               ))}
-              <a
-                href={getLinkHref(navbar.cta.link)}
+              <Link
+                to={getLinkHref(navbar.cta.link)}
                 className="block w-full text-center px-6 py-3 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {navbar.cta.text}
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

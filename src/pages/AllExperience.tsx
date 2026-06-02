@@ -136,17 +136,21 @@ export function AllExperience() {
                   <div className="hidden md:flex flex-col justify-between border-l border-white/5 pl-8">
                     <div className="space-y-4">
                       <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                        Skills & Tech (Inferred)
+                        Skills & Tech
                       </h4>
                       <div className="flex flex-wrap gap-2">
-                        {/* Note: In a real scenario, we might want 'skills' directly in the json for each job. 
-                                For now, we'll just show some generic decoration or placeholders if data isn't available, 
-                                but to make it look 'fully new UI', let's use the gradient line or similar.
-                            */}
-                        <div className="text-slate-400 text-sm italic">
-                          Full Stack • System Design • API Development • User
-                          Interface
-                        </div>
+                        {item.technologies?.map((tech: string, i: number) => (
+                          <div
+                            key={i}
+                            className={`px-3 py-1 rounded-full text-xs font-medium border border-${item.gradient.split("-")[1]}/30 bg-${item.gradient.split("-")[1]}/10 text-slate-300`}
+                            style={{
+                              borderColor: "rgba(255,255,255,0.1)",
+                              backgroundColor: "rgba(255,255,255,0.05)",
+                            }}
+                          >
+                            {tech}
+                          </div>
+                        ))}
                       </div>
                     </div>
 

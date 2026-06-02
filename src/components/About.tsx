@@ -47,14 +47,14 @@ export function About() {
             className="space-y-6"
           >
             <div className="glass-strong rounded-3xl p-8 border border-white/10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/20">
+                  <MapPin className="w-6 h-6 md:w-7 md:h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white">{about.bio.name}</h3>
-                  <p className="text-slate-400">
-                    Based in {about.bio.location}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{about.bio.name}</h3>
+                  <p className="text-sm md:text-base text-slate-400 flex flex-wrap items-center gap-1">
+                    Based in <span className="text-slate-300 font-medium">{about.bio.location}</span>
                   </p>
                 </div>
               </div>

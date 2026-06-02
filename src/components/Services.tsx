@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Code, Brain, Palette, Database } from "lucide-react";
+import { Code, Brain, Palette, Database, Zap } from "lucide-react";
 import content from "../data/content.json";
 
 export function Services() {
@@ -15,6 +15,8 @@ export function Services() {
         return Palette;
       case "Database":
         return Database;
+      case "Zap":
+        return Zap;
       default:
         return Code;
     }

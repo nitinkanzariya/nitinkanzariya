@@ -91,8 +91,8 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10">
-              <h3 className="text-white mb-6">{contact.infoTitle}</h3>
+            <div className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">{contact.infoTitle}</h3>
               <div className="space-y-6">
                 {contact.infoItems.map((info) => {
                   const Icon = getIcon(info.icon);
@@ -100,16 +100,16 @@ export function Contact() {
                     <a
                       key={info.label}
                       href={info.link}
-                      className="flex items-start gap-4 group hover:translate-x-2 transition-transform"
+                      className="flex items-start gap-3 sm:gap-4 group hover:translate-x-2 transition-transform"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
-                      <div>
-                        <p className="text-sm text-slate-400 mb-1">
+                      <div className="flex-1 overflow-hidden">
+                        <p className="text-xs sm:text-sm text-slate-400 mb-1">
                           {info.label}
                         </p>
-                        <p className="text-white group-hover:text-blue-400 transition-colors">
+                        <p className="text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors break-all sm:break-normal">
                           {info.value}
                         </p>
                       </div>
