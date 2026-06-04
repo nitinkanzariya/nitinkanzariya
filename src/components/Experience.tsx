@@ -36,7 +36,7 @@ export function Experience() {
             {/* Vertical Line */}
             <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-500 via-purple-500 to-transparent" />
 
-            {experience.items.map((item, index) => (
+            {experience.items.slice(0, 2).map((item, index) => (
               <ExperienceCard key={index} item={item} index={index} />
             ))}
           </div>
