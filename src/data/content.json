@@ -199,7 +199,7 @@
       },
       {
         "title": "Status Page",
-        "description": "Enterprise-grade real-time monitoring and notification platform built with .NET Core and Angular. Features SignalR-powered live status updates, multi-channel alert routing (email, SMS, push notifications), Slack slash command integration for DevOps workflows, RBAC with granular permission controls, and dynamic dashboards with configurable chart layouts. Includes an embedded Python RAG chatbot for intelligent system health queries and natural-language outage status retrieval.",
+        "description": "Enterprise-grade real-time monitoring and notification platform built with .NET Core and Angular. Features SignalR-powered live status updates, multi-channel alert routing (email, SMS, push notifications), Slack slash command integration for Incident creation & manage, RBAC with granular permission controls, and dynamic dashboards with configurable chart layouts. Includes an embedded Python RAG chatbot for intelligent system health queries and natural-language outage status retrieval.",
         "image": "https://images.unsplash.com/photo-1651684195895-38708dc94cfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBsYXB0b3B8ZW58MXx8fHwxNzY0ODYxMzk1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         "tags": [
           ".NET Core 6",
@@ -355,82 +355,99 @@
     "description": "My career progression and key achievements in software development",
     "items": [
       {
-        "company": "iTechOps",
-        "role": "Full Stack Developer",
-        "period": "Oct 2024 - Feb 2026",
-        "location": "Ahmedabad, Gujarat",
-        "description": "Leading end-to-end product development of Aegis, a multi-tenant AI customer support SaaS platform — owning architecture decisions across a 4-service distributed system spanning Next.js, Express.js, Python FastAPI, and an embeddable React widget.",
+        "company": "Aegis (Independent Project)",
+        "role": "Freelance Full Stack Developer",
+        "period": "Mar 2026 - Present",
+        "location": "Remote",
+        "description": "Leading end-to-end development of Aegis, a multi-tenant AI customer support SaaS platform. Taking full ownership of frontend, backend, AI pipelines, infrastructure, and product roadmap.",
         "achievements": [
-          "Architected and built Aegis from scratch — a production AI SaaS platform with 4 services, 18+ API controllers, 19 data models, and a 6-node LangGraph AI pipeline",
-          "Engineered a RAPTOR-style tree-based RAG pipeline with Pinecone hybrid search, intelligent document chunking, and LLM-powered re-ranking for high-accuracy knowledge retrieval",
-          "Built a multi-LLM orchestration layer supporting OpenAI, Anthropic, Google Gemini, Groq, and Ollama with dynamic model routing and per-tenant configuration",
-          "Implemented AI-driven database tool access with secure adapters for PostgreSQL, MySQL, and MongoDB — featuring parameterized query execution, result caching, and human-in-the-loop approval gates",
-          "Designed a real-time chat infrastructure using Socket.io with JWT-authenticated operator and widget connections, room-based message routing, and typing indicators",
-          "Built an embeddable chat widget (Vite + React) with i18n support, real-time streaming, and one-line script integration for customer websites",
-          "Integrated Stripe billing with tiered subscription plans, checkout sessions, webhook processing, and automated quota enforcement",
-          "Implemented enterprise security: SAML SSO, Google OAuth, AES-256 credential encryption, multi-tenant data isolation, and rate limiting",
-          "Set up BullMQ background job processing for document embedding, email delivery, chat processing, and auto-conversation resolution",
-          "Built a comprehensive analytics dashboard with Recharts for conversation metrics, response times, resolution rates, and AI performance tracking",
-          "Developed a real-time Status Page monitoring platform with SignalR, Slack slash commands, multi-channel notifications, RBAC, and an embedded RAG chatbot"
+          "Architected Aegis from scratch — a production AI SaaS platform spanning 3 microservices with LangGraph agent pipelines, PageIndex RAG, and Stripe billing",
+          "Engineered AI DB Tool Access with natural-language query support, allowing LLMs to select tools and construct parameterised queries across PostgreSQL, MySQL, and MongoDB",
+          "Built multi-LLM orchestration supporting OpenAI, Anthropic, Google Gemini, and Ollama with dynamic model routing and per-tenant knowledge bases",
+          "Shipped an embeddable JS chat widget with per-tenant branding and real-time BullMQ job queues for async AI workloads",
+          "Iterated on sprint-based delivery with LangGraph pipeline optimisations, retrieval tuning, and Stripe billing integration for subscription lifecycle management"
         ],
         "technologies": [
           "Next.js",
-          "Express.js 5",
+          "Express.js",
           "Python FastAPI",
           "LangGraph",
           "Pinecone",
-          "Socket.io",
-          "Stripe",
           "MongoDB",
+          "Stripe",
           "BullMQ"
         ],
         "gradient": "from-blue-500 to-cyan-500"
+      },
+      {
+        "company": "iTechOps",
+        "role": "Senior Full Stack Developer",
+        "period": "Oct 2024 - Feb 2026",
+        "location": "Ahmedabad, Gujarat",
+        "description": "Led backend and frontend development for enterprise-scale web applications, focusing on microservices architecture, cloud deployment, and system performance.",
+        "achievements": [
+          "Built and maintained 5+ production web applications using React.js, Next.js 14, TypeScript, Node.js, FastAPI, and .NET APIs across multiple client projects",
+          "Deployed 3-microservice architecture on AWS ECS Fargate with GitHub Actions CI/CD and Docker images pushed to AWS ECR, achieving zero-downtime deployments",
+          "Implemented Redis-cached tool query results and BullMQ async worker pipelines, targeting <3s response time for concurrent workloads",
+          "Developed a real-time Status Page monitoring platform with SignalR, Slack slash commands, multi-channel notifications, and RBAC",
+          "Enforced TypeScript strict mode and Jest unit tests across sprint cycles, reducing bug carryover by ~30% and improving test coverage to ~75% on core modules"
+        ],
+        "technologies": [
+          "Next.js",
+          "React.js",
+          "TypeScript",
+          "Node.js",
+          "FastAPI",
+          ".NET Core",
+          "AWS ECS",
+          "Docker",
+          "Redis"
+        ],
+        "gradient": "from-purple-500 to-pink-500"
       },
       {
         "company": "Sarola Infotech",
         "role": "React Developer",
         "period": "Jun 2023 - Jul 2024",
         "location": "Barvala, Gujarat",
-        "description": "Developed and maintained web applications using React.js, Next.js, Angular, and Tailwind CSS with RESTful API integration and state management.",
+        "description": "Developed and maintained highly responsive web applications using the React ecosystem, with a strong focus on component reusability and performance optimization.",
         "achievements": [
-          "Developed and maintained web applications using React.js, Next.js, and Tailwind CSS",
-          "Built MUFASA stock trading system with Angular, Node.js, MySQL, and Microsoft Outlook integration",
-          "Implemented React Hooks and Material-UI for dynamic UIs and efficient state management",
-          "Integrated RESTful APIs and optimized data flow with back-end teams",
-          "Developed responsive Angular dashboards for real-time stock and trading insights",
-          "Designed and optimized MySQL database schemas for financial transactions and user data",
-          "Conducted code reviews, optimized performance, and resolved application bugs to ensure stability"
+          "Developed and shipped 3 production web applications (e-commerce, CRM, admin portals) using React.js, Next.js, TypeScript, and Tailwind CSS",
+          "Integrated 10+ RESTful APIs and optimised frontend data-fetch pipelines with Axios and custom React hooks, reducing average load latency by ~20%",
+          "Built reusable component libraries with Material-UI and Zustand state management, improving component reuse rate by ~40% across projects",
+          "Led 50+ code reviews, resolved performance bottlenecks, and reduced reported application bugs by ~35% over 12 months"
         ],
         "technologies": [
           "React.js",
-          "Node.js",
-          "MySQL",
+          "Next.js",
+          "TypeScript",
           "Tailwind CSS",
-          "REST APIs"
+          "Material-UI",
+          "Zustand",
+          "Axios"
         ],
-        "gradient": "from-purple-500 to-pink-500"
+        "gradient": "from-indigo-500 to-purple-500"
       },
       {
         "company": "Sarola Infotech",
         "role": "React Intern",
         "period": "Dec 2022 - May 2023",
         "location": "Barvala, Gujarat",
-        "description": "Assisted in developing front-end features using React.js and Tailwind CSS while learning industry best practices and modern web development workflows.",
+        "description": "Assisted in developing front-end features using React.js and Tailwind CSS while establishing strong Git workflows and engineering fundamentals.",
         "achievements": [
-          "Developed front-end features using React.js and Tailwind CSS",
-          "Gained hands-on experience with React Hooks and Material-UI, improving front-end expertise",
-          "Worked closely with senior developers on feature implementation and bug fixing",
-          "Participated in code reviews, team meetings, and followed best practices in web development",
-          "Contributed to improving application performance and user experience"
+          "Built 5+ frontend features using React.js, Hooks, and Tailwind CSS — contributing to 2 live production deployments",
+          "Participated in daily standups, sprint planning, and peer code reviews",
+          "Established strong Git workflow and engineering fundamentals under the mentorship of senior developers",
+          "Gained hands-on experience with React state management and component architecture"
         ],
         "technologies": [
           "React.js",
           "Tailwind CSS",
-          "Material-UI",
           "JavaScript",
+          "Git/GitHub",
           "HTML/CSS"
         ],
-        "gradient": "from-indigo-500 to-purple-500"
+        "gradient": "from-teal-500 to-emerald-500"
       }
     ],
     "education": [
