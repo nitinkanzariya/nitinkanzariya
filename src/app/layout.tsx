@@ -80,6 +80,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "VN5iAO9sbN-Xo1wbcUDOKGmC72LgmVsAIWp6UP9JJz8",
+  },
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
   },
