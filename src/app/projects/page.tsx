@@ -58,6 +58,15 @@ export default function AllProjects() {
 
                 {/* Overlay Links */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 backdrop-blur-sm">
+                  {project.id && (
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="px-4 py-2 rounded-full glass-strong border border-white/20 text-white text-sm hover:scale-105 active:scale-95 transition-transform bg-white/10 hover:bg-white/20"
+                      title="View Details"
+                    >
+                      View Details
+                    </Link>
+                  )}
                   {project.websiteLink && (
                     <a
                       href={project.websiteLink}
@@ -90,22 +99,40 @@ export default function AllProjects() {
                 />
 
                 <div className="relative z-10">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
+                  {project.id ? (
+                    <Link href={`/projects/${project.id}`} className="inline-block">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors cursor-pointer">
+                        {project.title}
+                      </h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                      {project.title}
+                    </h3>
+                  )}
 
                   <p className="text-slate-300 text-lg leading-relaxed mb-6">
                     {project.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map((tag) => (
-                      <span
+                    {project.tags.map((tag: string) => (
+                      <Link
                         key={tag}
-                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10"
+                        href={`/tech/${encodeURIComponent(tag)}`}
+                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
                       >
                         {tag}
-                      </span>
+                      </Link>
+                    ))}
+                    {project.libraries?.map((library: string) => (
+                      <Link
+                        key={library}
+                        href={`/tech/${encodeURIComponent(library)}`}
+                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
+                      >
+                        {library}
+                      </Link>
                     ))}
                   </div>
 

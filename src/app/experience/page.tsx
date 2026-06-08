@@ -142,9 +142,10 @@ export default function AllExperience() {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {item.technologies?.map((tech: string, i: number) => (
-                          <div
+                          <Link
                             key={i}
-                            className="px-3 py-1 rounded-full text-xs font-medium text-slate-300"
+                            href={`/tech/${encodeURIComponent(tech)}`}
+                            className="px-3 py-1 rounded-full text-xs font-medium text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
                             style={{
                               borderColor: "rgba(255,255,255,0.1)",
                               backgroundColor: "rgba(255,255,255,0.05)",
@@ -152,7 +153,21 @@ export default function AllExperience() {
                             }}
                           >
                             {tech}
-                          </div>
+                          </Link>
+                        ))}
+                        {item.libraries?.map((library: string, i: number) => (
+                          <Link
+                            key={`lib-${i}`}
+                            href={`/tech/${encodeURIComponent(library)}`}
+                            className="px-3 py-1 rounded-full text-xs font-medium text-blue-300 hover:bg-blue-500/20 transition-colors"
+                            style={{
+                              borderColor: "rgba(59,130,246,0.2)",
+                              backgroundColor: "rgba(59,130,246,0.1)",
+                              border: "1px solid rgba(59,130,246,0.2)",
+                            }}
+                          >
+                            {library}
+                          </Link>
                         ))}
                       </div>
                     </div>

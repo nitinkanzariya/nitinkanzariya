@@ -1,34 +1,54 @@
-# Portfolio - Next.js Migration
+# Nitin Kanzariya - Portfolio
 
-## Setup Instructions
+A personal portfolio website built with Next.js, React, and Tailwind CSS. It features a modern, responsive design with smooth animations and interactive components.
 
-### 1. Copy public assets from original project
-Copy these files from `d:\nitinkanzariya\public\` to `d:\nitinkanzariya-nextjs\public\`:
-- `profile_photo.JPG`
-- `NitinKanzariya_Resume.pdf`
+## Tech Stack
 
-```powershell
-Copy-Item "d:\nitinkanzariya\public\*" -Destination "d:\nitinkanzariya-nextjs\public\" -Force
-```
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Radix UI](https://www.radix-ui.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: Motion
+- **Language**: TypeScript
 
-### 2. Install dependencies
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm
+
+### Installation
+
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-### 3. Configure email (optional)
-Copy `.env.local.example` to `.env.local` and fill in your SMTP credentials:
+2. Configure environment variables (optional, for contact form email functionality):
+Copy the example environment file and fill in your SMTP credentials:
 ```bash
 cp .env.local.example .env.local
 ```
 
-### 4. Run development server
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-### 5. Build for production
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Build for Production
+
+To create an optimized production build:
 ```bash
 npm run build
 npm start
 ```
+
+## Features
+
+- Responsive and modern design
+- Dark/Light mode support
+- Interactive UI components
+- Contact form with email integration

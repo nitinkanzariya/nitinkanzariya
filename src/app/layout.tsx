@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 const sora = Sora({
@@ -51,7 +52,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-[#0a0a0f] text-white">
+      <body className="min-h-screen bg-dark-bg text-white">
+        <CustomCursor />
         <CursorSpotlight />
         <ScrollToTop />
         <Navbar />

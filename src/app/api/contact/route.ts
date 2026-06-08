@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: "Too many requests. Please try again later." },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: "All fields are required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: "Invalid email address." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
       console.warn(
         "SMTP credentials not configured. Email not sent. Form data:",
-        { name, email, subject }
+        { name, email, subject },
       );
       return NextResponse.json(
         {
@@ -68,23 +68,23 @@ export async function POST(request: NextRequest) {
           message:
             "Message received! (Note: Email delivery is not configured yet.)",
         },
-        { status: 200 }
+        { status: 200 },
       );
     }
 
     // Configure NodeMailer transport
+    const port = Number(process.env.SMTP_PORT || 587);
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: false,
+      port,
+      secure: port === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
       },
     });
 
-    const contactEmail =
-      process.env.CONTACT_EMAIL || "nkanzariya40@gmail.com";
+    const contactEmail = process.env.CONTACT_EMAIL || "nkanzariya40@gmail.com";
 
     // Send email to you
     await transporter.sendMail({
@@ -144,13 +144,13 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully!" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
       { error: "Failed to send message. Please try again later." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

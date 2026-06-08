@@ -77,9 +77,17 @@ export function Projects() {
                   />
 
                   <div className="relative z-10">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                      {aegisProject.title}
-                    </h3>
+                    {aegisProject.id ? (
+                      <Link href={`/projects/${aegisProject.id}`} className="inline-block">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors cursor-pointer">
+                          {aegisProject.title}
+                        </h3>
+                      </Link>
+                    ) : (
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                        {aegisProject.title}
+                      </h3>
+                    )}
 
                     <p className="text-slate-400 leading-relaxed mb-6 line-clamp-4">
                       {aegisProject.description}
@@ -107,13 +115,14 @@ export function Projects() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {aegisProject.tags.slice(0, 8).map((tag) => (
-                        <span
+                      {aegisProject.tags.slice(0, 8).map((tag: string) => (
+                        <Link
                           key={tag}
-                          className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10"
+                          href={`/tech/${encodeURIComponent(tag)}`}
+                          className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
                         >
                           {tag}
-                        </span>
+                        </Link>
                       ))}
                       {aegisProject.tags.length > 8 && (
                         <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-400 border border-white/10">
@@ -123,7 +132,15 @@ export function Projects() {
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-3 mt-auto">
+                      {aegisProject.id && (
+                        <Link
+                          href={`/projects/${aegisProject.id}`}
+                          className="flex items-center gap-2 px-6 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm hover:bg-white/20 hover:shadow-lg transition-all"
+                        >
+                          View Details
+                        </Link>
+                      )}
                       {aegisProject.websiteLink && (
                         <a
                           href={aegisProject.websiteLink}
@@ -179,7 +196,16 @@ export function Projects() {
                   />
 
                   {/* Overlay with buttons */}
-                  <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-4">
+                  <div className="absolute inset-0 bg-linear-to-t from-dark-bg via-transparent lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6 gap-3">
+                    {project.id && (
+                      <Link
+                        href={`/projects/${project.id}`}
+                        className="px-4 py-2 rounded-full glass-strong border border-white/20 text-white text-sm hover:scale-105 active:scale-95 transition-transform hover:bg-white/10"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        View Details
+                      </Link>
+                    )}
                     {project.websiteLink && (
                       <a
                         href={project.websiteLink}
@@ -209,22 +235,31 @@ export function Projects() {
 
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-white mb-3 group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
+                  {project.id ? (
+                    <Link href={`/projects/${project.id}`} className="inline-block">
+                      <h3 className="text-white mb-3 group-hover:text-blue-400 transition-colors cursor-pointer">
+                        {project.title}
+                      </h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      {project.title}
+                    </h3>
+                  )}
                   <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">
                     {project.description}
                   </p>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
+                    {project.tags.map((tag: string) => (
+                      <Link
                         key={tag}
-                        className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10"
+                        href={`/tech/${encodeURIComponent(tag)}`}
+                        className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
                       >
                         {tag}
-                      </span>
+                      </Link>
                     ))}
                   </div>
                 </div>

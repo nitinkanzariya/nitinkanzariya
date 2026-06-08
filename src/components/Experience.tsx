@@ -192,6 +192,21 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
           </button>
         )}
 
+        {/* Technologies */}
+        {item.technologies && item.technologies.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {item.technologies.map((tech: string, i: number) => (
+              <Link
+                key={i}
+                href={`/tech/${encodeURIComponent(tech)}`}
+                className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 hover:text-white transition-colors"
+              >
+                {tech}
+              </Link>
+            ))}
+          </div>
+        )}
+
         {/* Gradient Line */}
         <div
           className={`mt-6 h-1 rounded-full bg-linear-to-r ${item.gradient}`}

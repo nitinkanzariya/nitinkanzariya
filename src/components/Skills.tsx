@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Code2, Database, Brain, Wrench } from "lucide-react";
+import Link from "next/link";
 import content from "@/data/content.json";
 
 export function Skills() {
@@ -84,15 +85,19 @@ export function Skills() {
                         delay: categoryIndex * 0.05 + index * 0.03,
                       }}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className={`relative px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all cursor-default text-center group/item`}
                     >
-                      {/* Subtle gradient glow on hover */}
-                      <div
-                        className={`absolute inset-0 rounded-xl bg-linear-to-br ${category.color} opacity-0 group-hover/item:opacity-10 transition-opacity`}
-                      />
-                      <span className="relative text-sm text-slate-300 font-medium">
-                        {skill.name}
-                      </span>
+                      <Link
+                        href={`/tech/${encodeURIComponent(skill.name)}`}
+                        className={`relative block px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all cursor-pointer text-center group/item`}
+                      >
+                        {/* Subtle gradient glow on hover */}
+                        <div
+                          className={`absolute inset-0 rounded-xl bg-linear-to-br ${category.color} opacity-0 group-hover/item:opacity-10 transition-opacity`}
+                        />
+                        <span className="relative text-sm text-slate-300 font-medium group-hover/item:text-white transition-colors">
+                          {skill.name}
+                        </span>
+                      </Link>
                     </motion.div>
                   ))}
                 </div>
@@ -111,14 +116,18 @@ export function Skills() {
         >
           <p className="text-slate-400 mb-6">Also experienced with:</p>
           <div className="flex flex-wrap justify-center gap-3">
-            {skills.otherSkills.map((tag) => (
-              <motion.span
+            {skills.otherSkills.map((tag: string) => (
+              <motion.div
                 key={tag}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="glass px-4 py-2 rounded-full text-sm text-slate-300 border border-white/10 hover:border-white/20 transition-all cursor-default"
               >
-                {tag}
-              </motion.span>
+                <Link
+                  href={`/tech/${encodeURIComponent(tag)}`}
+                  className="glass block px-4 py-2 rounded-full text-sm text-slate-300 border border-white/10 hover:border-white/20 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                >
+                  {tag}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </motion.div>
