@@ -100,7 +100,10 @@ export default function AllProjects() {
 
                 <div className="relative z-10">
                   {project.id ? (
-                    <Link href={`/projects/${project.id}`} className="inline-block">
+                    <Link
+                      href={`/projects/${project.id}`}
+                      className="inline-block"
+                    >
                       <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors cursor-pointer">
                         {project.title}
                       </h3>
@@ -125,7 +128,7 @@ export default function AllProjects() {
                         {tag}
                       </Link>
                     ))}
-                    {project.libraries?.map((library: string) => (
+                    {/* {project.libraries?.map((library: string) => (
                       <Link
                         key={library}
                         href={`/tech/${encodeURIComponent(library)}`}
@@ -133,7 +136,7 @@ export default function AllProjects() {
                       >
                         {library}
                       </Link>
-                    ))}
+                    ))} */}
                   </div>
 
                   <div className="flex items-center gap-6">

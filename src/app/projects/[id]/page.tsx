@@ -63,7 +63,7 @@ export default function ProjectDetails() {
                 {tag}
               </Link>
             ))}
-            {project.libraries?.map((library: string) => (
+            {/* {project.libraries?.map((library: string) => (
               <Link
                 key={library}
                 href={`/tech/${encodeURIComponent(library)}`}
@@ -71,7 +71,7 @@ export default function ProjectDetails() {
               >
                 {library}
               </Link>
-            ))}
+            ))} */}
           </div>
 
           {/* Links */}
@@ -153,7 +153,9 @@ export default function ProjectDetails() {
                       <div className={`mt-1 text-blue-400 shrink-0`}>
                         <CheckCircle2 className="w-5 h-5" />
                       </div>
-                      <p className="text-slate-300 leading-relaxed">{feature}</p>
+                      <p className="text-slate-300 leading-relaxed">
+                        {feature}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
@@ -180,24 +182,17 @@ export default function ProjectDetails() {
                     {tag}
                   </Link>
                 ))}
+                {project.libraries &&
+                  project.libraries?.map((library: string) => (
+                    <Link
+                      key={library}
+                      href={`/tech/${encodeURIComponent(library)}`}
+                      className="text-sm font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
+                    >
+                      {library}
+                    </Link>
+                  ))}
               </div>
-
-              {project.libraries && project.libraries.length > 0 && (
-                <>
-                  <h3 className="text-xl font-bold text-white mb-4">Libraries</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.libraries.map((library: string) => (
-                      <Link
-                        key={library}
-                        href={`/tech/${encodeURIComponent(library)}`}
-                        className="text-sm font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
-                      >
-                        {library}
-                      </Link>
-                    ))}
-                  </div>
-                </>
-              )}
             </div>
           </motion.div>
         </div>

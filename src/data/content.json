@@ -25,7 +25,7 @@
       "alt": "Nitin Kanzariya - Full Stack Developer & AI Platform Engineer"
     },
     "floatingCards": [
-      { "text": "8+ Projects", "color": "green" },
+      { "text": "9+ Projects", "color": "green" },
       { "text": "AI Expert", "color": "blue" }
     ]
   },
@@ -34,7 +34,7 @@
     "headline": "Crafting Digital Excellence",
     "stats": [
       { "label": "Years Experience", "value": "2.5+", "icon": "Briefcase" },
-      { "label": "Projects Completed", "value": "8+", "icon": "Award" },
+      { "label": "Projects Completed", "value": "9+", "icon": "Award" },
       { "label": "Client Satisfaction", "value": "100%", "icon": "TrendingUp" }
     ],
     "bio": {
@@ -265,9 +265,7 @@
           "Pandas",
           "Cross-Browser Compatibility"
         ],
-        "gradient": "from-blue-500 to-cyan-500",
-        "websiteLink": "https://example.com/rag-chatbot",
-        "githubLink": "https://github.com/nitinkanzariya/rag-chatbot"
+        "gradient": "from-blue-500 to-cyan-500"
       },
       {
         "id": "status-page",
@@ -414,6 +412,47 @@
         "gradient": "from-green-500 to-teal-500",
         "websiteLink": "",
         "githubLink": ""
+      },
+      {
+        "id": "portfolio-website",
+        "title": "Personal Portfolio Website",
+        "features": [
+          "Designed and developed a modern, responsive developer portfolio using Next.js 15 with App Router and React 19 Server Components for optimized performance and SEO.",
+          "Implemented a custom interactive cursor effect with smooth CSS transitions, hover-aware scaling, and blend-mode visuals for a premium browsing experience.",
+          "Built a fully functional contact form with server-side Nodemailer integration via Next.js API routes for direct email delivery without third-party form services.",
+          "Created rich scroll-triggered animations and section transitions using Framer Motion, including staggered reveals, parallax effects, and micro-interactions.",
+          "Developed a comprehensive component library with Radix UI primitives and custom-styled elements for consistent, accessible UI across all sections.",
+          "Engineered a data-driven architecture with a centralized JSON content system, enabling easy content updates without touching component code.",
+          "Implemented dark-themed glassmorphism design with gradient accents, backdrop blur effects, and layered card compositions for a premium visual identity.",
+          "Built dedicated project detail pages and experience timeline with dynamic routing, tag-based tech filtering, and expandable feature lists.",
+          "Optimized for SEO with semantic HTML, proper meta tags, structured heading hierarchy, and fast load times through Next.js static optimization.",
+          "Ensured full responsiveness across all breakpoints with mobile-first design, collapsible navigation, and touch-friendly interactions."
+        ],
+        "description": "A modern, high-performance developer portfolio built with Next.js 15, React 19, and TypeScript — featuring a custom interactive cursor, Framer Motion animations, glassmorphism design, server-side contact form with Nodemailer, Radix UI component library, and a data-driven JSON content architecture for easy maintenance. Fully responsive with dark-themed aesthetics, scroll-triggered transitions, and SEO-optimized pages.",
+        "image": "https://images.unsplash.com/photo-1545665277-5b012735e5ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "tags": [
+          "Next.js",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS",
+          "Framer Motion",
+          "Nodemailer",
+          "Radix UI",
+          "Responsive Design"
+        ],
+        "libraries": [
+          "Lucide React",
+          "React Hook Form",
+          "Sonner",
+          "Next Themes",
+          "Class Variance Authority",
+          "Tailwind Merge",
+          "Embla Carousel",
+          "Recharts"
+        ],
+        "gradient": "from-emerald-500 to-cyan-500",
+        "websiteLink": "https://nitinkanzariya.vercel.app/",
+        "githubLink": "https://github.com/nitinkanzariya/nitinkanzariya"
       }
     ],
     "cta": "View All Projects"
@@ -739,9 +778,9 @@
     "quickLinks": [
       { "text": "About", "link": "#about" },
       { "text": "Skills", "link": "#skills" },
-      { "text": "Projects", "link": "#projects" },
+      { "text": "Projects", "link": "projects" },
       { "text": "What I Bring", "link": "#what-i-bring" },
-      { "text": "Experience", "link": "#experience" },
+      { "text": "Experience", "link": "experience" },
       { "text": "Contact", "link": "#contact" }
     ],
     "contactInfoTitle": "Get In Touch",
