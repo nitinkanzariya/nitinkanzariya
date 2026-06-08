@@ -9,7 +9,7 @@
     "buttons": {
       "primary": {
         "text": "View Projects",
-        "link": "#projects"
+        "link": "projects"
       },
       "secondary": {
         "text": "Contact Me",

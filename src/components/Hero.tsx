@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Code, Brain } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
 import content from "@/data/content.json";
+import Link from "next/link";
 
 export function Hero() {
   const { hero } = content;
@@ -84,19 +85,19 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row flex-wrap gap-4"
             >
-              <a
+              <Link
                 href={hero.buttons.primary.link}
                 className="group px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 {hero.buttons.primary.text}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={hero.buttons.secondary.link}
                 className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/10 transition-all text-center text-sm sm:text-base"
               >
                 {hero.buttons.secondary.text}
-              </a>
+              </Link>
             </motion.div>
 
             {/* Tech Icons */}

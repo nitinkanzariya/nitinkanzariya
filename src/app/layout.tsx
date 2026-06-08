@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { JsonLd } from "@/components/JsonLd";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -22,23 +23,62 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nitin Kanzariya | Full Stack Developer & AI Platform Engineer",
+  metadataBase: new URL("https://nitinkanzariya.vercel.app"),
+  title: {
+    default: "Nitin Kanzariya | Full Stack Developer & AI Platform Engineer",
+    template: "%s | Nitin Kanzariya",
+  },
   description:
     "Nitin Kanzariya — Full Stack Developer & AI Platform Engineer based in Ahmedabad, India. I build production SaaS platforms with React, Next.js, Node.js, Python FastAPI, and LangGraph-powered RAG pipelines. View my projects, including Aegis — a multi-tenant AI customer support platform.",
-  keywords:
-    "Nitin Kanzariya, Full Stack Developer, AI Platform Engineer, React, Next.js, Node.js, Python FastAPI, LangGraph, RAG Pipeline, LangChain, Aegis, SaaS, Portfolio",
-  authors: [{ name: "Nitin Kanzariya" }],
+  keywords: [
+    "Nitin Kanzariya",
+    "Full Stack Developer",
+    "AI Platform Engineer",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python FastAPI",
+    "LangGraph",
+    "RAG Pipeline",
+    "LangChain",
+    "Aegis",
+    "SaaS",
+    "Portfolio",
+    "Ahmedabad",
+    "India",
+  ],
+  authors: [{ name: "Nitin Kanzariya", url: "https://nitinkanzariya.vercel.app" }],
+  creator: "Nitin Kanzariya",
+  publisher: "Nitin Kanzariya",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Nitin Kanzariya | Full Stack Developer & AI Platform Engineer",
     description:
       "Engineering AI-Powered SaaS Platforms from Zero to Production. Full Stack Developer specializing in React, Next.js, Node.js, Python FastAPI, and LangGraph RAG pipelines.",
     type: "website",
+    url: "https://nitinkanzariya.vercel.app",
+    siteName: "Nitin Kanzariya — Portfolio",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nitin Kanzariya | Full Stack Developer & AI Platform Engineer",
     description:
       "Engineering AI-Powered SaaS Platforms from Zero to Production.",
+    creator: "@nitinkanzariya",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>",
@@ -53,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-dark-bg text-white">
+        <JsonLd />
         <CustomCursor />
         <CursorSpotlight />
         <ScrollToTop />
