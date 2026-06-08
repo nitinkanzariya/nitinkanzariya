@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "motion/react";
 import { Code2, Database, Brain, Wrench } from "lucide-react";
-import content from "../data/content.json";
+import content from "@/data/content.json";
 
 export function Skills() {
   const { skills } = content;
@@ -44,6 +46,7 @@ export function Skills() {
           </p>
         </motion.div>
 
+        {/* Categorized Tech Stack Grid — replaces percentage bars */}
         <div className="grid md:grid-cols-2 gap-8">
           {skills.categories.map((category, categoryIndex) => {
             const Icon = getIcon(category.icon);
@@ -68,29 +71,29 @@ export function Skills() {
                   </h3>
                 </div>
 
-                {/* Skills List */}
-                <div className="space-y-5">
+                {/* Tech Grid — clean cells with name only, no fake percentages */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {category.items.map((skill, index) => (
-                    <div key={skill.name}>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-slate-300">{skill.name}</span>
-                        <span className="text-sm text-slate-500">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="relative h-2 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ amount: 0.2 }}
-                          transition={{
-                            duration: 1,
-                            delay: categoryIndex * 0.1 + index * 0.05,
-                          }}
-                          className={`absolute top-0 left-0 h-full bg-linear-to-r ${category.color} rounded-full`}
-                        />
-                      </div>
-                    </div>
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ amount: 0.2 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: categoryIndex * 0.05 + index * 0.03,
+                      }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className={`relative px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all cursor-default text-center group/item`}
+                    >
+                      {/* Subtle gradient glow on hover */}
+                      <div
+                        className={`absolute inset-0 rounded-xl bg-linear-to-br ${category.color} opacity-0 group-hover/item:opacity-10 transition-opacity`}
+                      />
+                      <span className="relative text-sm text-slate-300 font-medium">
+                        {skill.name}
+                      </span>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>

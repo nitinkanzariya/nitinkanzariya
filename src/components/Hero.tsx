@@ -1,7 +1,9 @@
+"use client";
+
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Code, Brain } from "lucide-react";
 import { ImageWithFallback } from "./ImageWithFallback";
-import content from "../data/content.json";
+import content from "@/data/content.json";
 
 export function Hero() {
   const { hero } = content;

@@ -1,14 +1,17 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Code2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import content from "../data/content.json";
+import content from "@/data/content.json";
 
 export function Navbar() {
   const { navbar } = content;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +42,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
               <Code2 className="w-6 h-6 text-white" />
             </div>
@@ -53,7 +56,7 @@ export function Navbar() {
             {navbar.links.map((link) => (
               <Link
                 key={link.link}
-                to={getLinkHref(link.link)}
+                href={getLinkHref(link.link)}
                 className="text-slate-300 hover:text-white transition-colors relative group"
               >
                 {link.text}
@@ -61,7 +64,7 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              to={getLinkHref(navbar.cta.link)}
+              href={getLinkHref(navbar.cta.link)}
               className="px-6 py-2 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all transform hover:scale-105 active:scale-95"
             >
               {navbar.cta.text}
@@ -91,7 +94,7 @@ export function Navbar() {
               {navbar.links.map((link) => (
                 <Link
                   key={link.link}
-                  to={getLinkHref(link.link)}
+                  href={getLinkHref(link.link)}
                   className="block text-slate-300 hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -99,7 +102,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Link
-                to={getLinkHref(navbar.cta.link)}
+                href={getLinkHref(navbar.cta.link)}
                 className="block w-full text-center px-6 py-3 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

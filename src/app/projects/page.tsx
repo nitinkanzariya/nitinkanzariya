@@ -1,16 +1,19 @@
+"use client";
+
 import { motion } from "motion/react";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import { ImageWithFallback } from "../components/ImageWithFallback";
-import content from "../data/content.json";
+import Link from "next/link";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
+import content from "@/data/content.json";
+import type { Metadata } from "next";
 
-export function AllProjects() {
+export default function AllProjects() {
   const { projects } = content;
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Link
-        to="/"
+        href="/"
         className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -42,7 +45,7 @@ export function AllProjects() {
             className="group"
           >
             <div className="glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all flex flex-col md:flex-row">
-              {/* Image Section - Larger / Side by Side */}
+              {/* Image Section */}
               <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
                 <div
                   className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity`}
@@ -82,7 +85,6 @@ export function AllProjects() {
 
               {/* Content Section */}
               <div className="p-8 md:p-10 flex-1 flex flex-col justify-center relative min-h-[300px]">
-                {/* Decorative background blur */}
                 <div
                   className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${project.gradient} opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}
                 />

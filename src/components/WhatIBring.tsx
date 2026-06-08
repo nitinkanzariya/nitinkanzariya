@@ -1,8 +1,10 @@
-import { motion } from "motion/react";
-import { Code, Brain, Palette, Database, Zap } from "lucide-react";
-import content from "../data/content.json";
+"use client";
 
-export function Services() {
+import { motion } from "motion/react";
+import { Code, Brain, Zap, Database } from "lucide-react";
+import content from "@/data/content.json";
+
+export function WhatIBring() {
   const { services } = content;
 
   const getIcon = (iconName: string) => {
@@ -11,19 +13,17 @@ export function Services() {
         return Code;
       case "Brain":
         return Brain;
-      case "Palette":
-        return Palette;
-      case "Database":
-        return Database;
       case "Zap":
         return Zap;
+      case "Database":
+        return Database;
       default:
         return Code;
     }
   };
 
   return (
-    <section id="services" className="relative py-24 overflow-hidden">
+    <section id="what-i-bring" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
@@ -36,11 +36,12 @@ export function Services() {
           className="text-center mb-16"
         >
           <span className="text-purple-400 uppercase tracking-wider">
-            {services.sectionTitle}
+            What I Bring
           </span>
-          <h2 className="mt-4 gradient-text">{services.headline}</h2>
+          <h2 className="mt-4 gradient-text">Core Engineering Strengths</h2>
           <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-            {services.description}
+            Deep expertise across the full stack — from interactive frontends to
+            production AI pipelines and real-time infrastructure
           </p>
         </motion.div>
 

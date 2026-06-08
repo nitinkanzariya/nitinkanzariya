@@ -1,15 +1,17 @@
+"use client";
+
 import { motion } from "motion/react";
 import { Briefcase, Calendar, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import content from "../data/content.json";
+import Link from "next/link";
+import content from "@/data/content.json";
 
-export function AllExperience() {
+export default function AllExperience() {
   const { experience } = content;
 
   return (
     <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Link
-        to="/"
+        href="/"
         className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
@@ -43,7 +45,7 @@ export function AllExperience() {
             <div className="glass-strong rounded-3xl p-8 md:p-12 border border-white/10 hover:border-white/20 transition-all group relative overflow-hidden">
               {/* Background Gradient */}
               <div
-                className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${item.gradient} opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}
+                className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${item.gradient} opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}
               />
 
               <div className="relative z-10">
@@ -52,7 +54,7 @@ export function AllExperience() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div
-                        className={`p-2 rounded-xl bg-gradient-to-r ${item.gradient} bg-opacity-20`}
+                        className={`p-2 rounded-xl bg-linear-to-r ${item.gradient} bg-opacity-20`}
                       >
                         <Briefcase className="w-6 h-6 text-white" />
                       </div>
@@ -121,7 +123,7 @@ export function AllExperience() {
                         {item.achievements.map((achievement, i) => (
                           <div key={i} className="flex items-start gap-4">
                             <div
-                              className={`mt-2 w-2 h-2 rounded-full bg-gradient-to-r ${item.gradient} shrink-0`}
+                              className={`mt-2 w-2 h-2 rounded-full bg-linear-to-r ${item.gradient} shrink-0`}
                             />
                             <span className="text-slate-300 leading-relaxed">
                               {achievement}
@@ -132,7 +134,7 @@ export function AllExperience() {
                     </div>
                   </div>
 
-                  {/* Visual/Decoration Side - could be used for tech stack or just visual balance */}
+                  {/* Tech stack sidebar */}
                   <div className="hidden md:flex flex-col justify-between border-l border-white/5 pl-8">
                     <div className="space-y-4">
                       <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
@@ -142,10 +144,11 @@ export function AllExperience() {
                         {item.technologies?.map((tech: string, i: number) => (
                           <div
                             key={i}
-                            className={`px-3 py-1 rounded-full text-xs font-medium border border-${item.gradient.split("-")[1]}/30 bg-${item.gradient.split("-")[1]}/10 text-slate-300`}
+                            className="px-3 py-1 rounded-full text-xs font-medium text-slate-300"
                             style={{
                               borderColor: "rgba(255,255,255,0.1)",
                               backgroundColor: "rgba(255,255,255,0.05)",
+                              border: "1px solid rgba(255,255,255,0.1)",
                             }}
                           >
                             {tech}
@@ -155,7 +158,7 @@ export function AllExperience() {
                     </div>
 
                     <div
-                      className={`h-32 w-full rounded-2xl bg-gradient-to-b ${item.gradient} opacity-10`}
+                      className={`h-32 w-full rounded-2xl bg-linear-to-b ${item.gradient} opacity-10`}
                     />
                   </div>
                 </div>

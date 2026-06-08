@@ -1,7 +1,9 @@
+"use client";
+
 import { motion } from "motion/react";
 import { Code2, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
-import content from "../data/content.json";
+import Link from "next/link";
+import content from "@/data/content.json";
 
 export function Footer() {
   const { footer } = content;
@@ -24,7 +26,7 @@ export function Footer() {
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-1">
             <Link
-              to="/"
+              href="/"
               className="flex items-center gap-2 group mb-4 hover:scale-105 transition-transform transform origin-left"
             >
               <div className="w-10 h-10 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
@@ -35,7 +37,7 @@ export function Footer() {
             <p className="text-slate-400 text-sm mb-4">{footer.description}</p>
           </div>
 
-          {/* Quick Links & Contact Info - Side by side on mobile */}
+          {/* Quick Links & Contact Info */}
           <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
             {/* Quick Links */}
             <div>
@@ -44,7 +46,7 @@ export function Footer() {
                 {footer.quickLinks.map((link) => (
                   <li key={link.link}>
                     <Link
-                      to={getLinkHref(link.link)}
+                      href={getLinkHref(link.link)}
                       className="text-slate-400 hover:text-white text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
                     >
                       {link.text}

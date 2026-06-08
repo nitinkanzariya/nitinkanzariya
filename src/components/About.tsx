@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "motion/react";
 import { MapPin, Briefcase, Award, TrendingUp } from "lucide-react";
-import content from "../data/content.json";
+import content from "@/data/content.json";
 
 export function About() {
   const { about, experience } = content;

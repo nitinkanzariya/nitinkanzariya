@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "motion/react";
 import {
@@ -9,8 +11,13 @@ import {
   Linkedin,
   Twitter,
   Instagram,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
 } from "lucide-react";
-import content from "../data/content.json";
+import content from "@/data/content.json";
+
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 export function Contact() {
   const { contact } = content;
@@ -20,13 +27,47 @@ export function Contact() {
     subject: "",
     message: "",
   });
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setStatusMessage(data.message || "Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        // Auto-reset success state after 5 seconds
+        setTimeout(() => {
+          setStatus("idle");
+          setStatusMessage("");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setStatusMessage(data.error || "Something went wrong. Please try again.");
+        setTimeout(() => {
+          setStatus("idle");
+          setStatusMessage("");
+        }, 5000);
+      }
+    } catch {
+      setStatus("error");
+      setStatusMessage("Network error. Please check your connection and try again.");
+      setTimeout(() => {
+        setStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    }
   };
 
   const handleChange = (
@@ -164,7 +205,7 @@ export function Contact() {
               </div>
               <p className="text-sm text-slate-400">
                 Currently accepting new projects and freelance opportunities.
-                Let's create something amazing together!
+                Let&apos;s create something amazing together!
               </p>
             </motion.div>
           </motion.div>
@@ -185,19 +226,20 @@ export function Contact() {
                 {/* Name */}
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="contact-name"
                     className="block text-sm text-slate-300 mb-2"
                   >
                     {contact.form.nameLabel}
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="contact-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.namePlaceholder}
                   />
                 </div>
@@ -205,19 +247,20 @@ export function Contact() {
                 {/* Email */}
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="contact-email"
                     className="block text-sm text-slate-300 mb-2"
                   >
                     {contact.form.emailLabel}
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="contact-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.emailPlaceholder}
                   />
                 </div>
@@ -225,19 +268,20 @@ export function Contact() {
                 {/* Subject */}
                 <div>
                   <label
-                    htmlFor="subject"
+                    htmlFor="contact-subject"
                     className="block text-sm text-slate-300 mb-2"
                   >
                     {contact.form.subjectLabel}
                   </label>
                   <input
                     type="text"
-                    id="subject"
+                    id="contact-subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.subjectPlaceholder}
                   />
                 </div>
@@ -245,32 +289,63 @@ export function Contact() {
                 {/* Message */}
                 <div>
                   <label
-                    htmlFor="message"
+                    htmlFor="contact-message"
                     className="block text-sm text-slate-300 mb-2"
                   >
                     {contact.form.messageLabel}
                   </label>
                   <textarea
-                    id="message"
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none disabled:opacity-50"
                     placeholder={contact.form.messagePlaceholder}
                   />
                 </div>
 
+                {/* Status Message */}
+                {statusMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm ${
+                      status === "success"
+                        ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                        : "bg-red-500/10 border border-red-500/20 text-red-400"
+                    }`}
+                  >
+                    {status === "success" ? (
+                      <CheckCircle className="w-4 h-4 shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                    )}
+                    {statusMessage}
+                  </motion.div>
+                )}
+
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2 group"
+                  disabled={status === "loading"}
+                  whileHover={status !== "loading" ? { scale: 1.02 } : {}}
+                  whileTap={status !== "loading" ? { scale: 0.98 } : {}}
+                  className="w-full px-8 py-4 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white hover:shadow-xl hover:shadow-purple-500/50 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <span>{contact.form.buttonText}</span>
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{contact.form.buttonText}</span>
+                      <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </motion.button>
               </div>
             </form>

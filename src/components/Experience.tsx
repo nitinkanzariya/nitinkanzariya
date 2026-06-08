@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 import { motion } from "motion/react";
 import { Briefcase, Calendar, Award, Eye } from "lucide-react";
-import { Link } from "react-router-dom";
-import content from "../data/content.json";
+import Link from "next/link";
+import content from "@/data/content.json";
 import { ResumeModal } from "./ui/ResumeModal";
 
 export function Experience() {
@@ -103,7 +105,7 @@ export function Experience() {
           </ResumeModal>
 
           <Link
-            to="/experience"
+            href="/experience"
             className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"
           >
             <span className="flex items-center gap-2">

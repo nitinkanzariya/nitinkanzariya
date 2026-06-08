@@ -64,13 +64,13 @@
         "icon": "Code2",
         "color": "from-blue-500 to-cyan-500",
         "items": [
-          { "name": "React.js", "level": 90 },
-          { "name": "Next.js", "level": 85 },
-          { "name": "Angular", "level": 75 },
-          { "name": "Tailwind CSS", "level": 90 },
-          { "name": "JavaScript", "level": 90 },
-          { "name": "TypeScript", "level": 85 },
-          { "name": "Flutter", "level": 55 }
+          { "name": "React.js" },
+          { "name": "Next.js" },
+          { "name": "Angular" },
+          { "name": "Tailwind CSS" },
+          { "name": "JavaScript" },
+          { "name": "TypeScript" },
+          { "name": "Flutter" }
         ]
       },
       {
@@ -78,14 +78,14 @@
         "icon": "Database",
         "color": "from-purple-500 to-pink-500",
         "items": [
-          { "name": "Node.js", "level": 80 },
-          { "name": "Express.js 5", "level": 80 },
-          { "name": "Python FastAPI", "level": 75 },
-          { "name": ".NET Core API", "level": 70 },
-          { "name": "MongoDB", "level": 80 },
-          { "name": "MySQL", "level": 80 },
-          { "name": "SQL Server", "level": 80 },
-          { "name": "RESTful APIs", "level": 85 }
+          { "name": "Node.js" },
+          { "name": "Express.js 5" },
+          { "name": "Python FastAPI" },
+          { "name": ".NET Core API" },
+          { "name": "MongoDB" },
+          { "name": "MySQL" },
+          { "name": "SQL Server" },
+          { "name": "RESTful APIs" }
         ]
       },
       {
@@ -93,14 +93,14 @@
         "icon": "Brain",
         "color": "from-indigo-500 to-purple-500",
         "items": [
-          { "name": "LangGraph", "level": 70 },
-          { "name": "LangChain", "level": 70 },
-          { "name": "RAG Pipelines (RAPTOR)", "level": 75 },
-          { "name": "Multi-LLM Orchestration", "level": 80 },
-          { "name": "Pinecone (Vector DB)", "level": 70 },
-          { "name": "OpenAI / Anthropic APIs", "level": 75 },
-          { "name": "Document Processing", "level": 70 },
-          { "name": "Python", "level": 85 }
+          { "name": "LangGraph" },
+          { "name": "LangChain" },
+          { "name": "RAG Pipelines (RAPTOR)" },
+          { "name": "Multi-LLM Orchestration" },
+          { "name": "Pinecone (Vector DB)" },
+          { "name": "OpenAI / Anthropic APIs" },
+          { "name": "Document Processing" },
+          { "name": "Python" }
         ]
       },
       {
@@ -108,13 +108,13 @@
         "icon": "Wrench",
         "color": "from-orange-500 to-red-500",
         "items": [
-          { "name": "Git & GitHub", "level": 85 },
-          { "name": "Socket.io", "level": 80 },
-          { "name": "BullMQ / Redis", "level": 80 },
-          { "name": "Docker", "level": 70 },
-          { "name": "Stripe Integration", "level": 70 },
-          { "name": "SignalR", "level": 75 },
-          { "name": "Agile/Scrum", "level": 70 }
+          { "name": "Git & GitHub" },
+          { "name": "Socket.io" },
+          { "name": "BullMQ / Redis" },
+          { "name": "Docker" },
+          { "name": "Stripe Integration" },
+          { "name": "SignalR" },
+          { "name": "Agile/Scrum" }
         ]
       }
     ],
@@ -282,9 +282,9 @@
     "cta": "View All Projects"
   },
   "services": {
-    "sectionTitle": "Services",
-    "headline": "What I Offer",
-    "description": "Comprehensive development services to bring your digital vision to life",
+    "sectionTitle": "What I Bring",
+    "headline": "Core Engineering Strengths",
+    "description": "Deep expertise across the full stack — from interactive frontends to production AI pipelines and real-time infrastructure",
     "items": [
       {
         "title": "Full Stack Web Development",
@@ -537,7 +537,7 @@
       { "text": "About", "link": "#about" },
       { "text": "Skills", "link": "#skills" },
       { "text": "Projects", "link": "#projects" },
-      { "text": "Services", "link": "#services" },
+      { "text": "What I Bring", "link": "#what-i-bring" },
       { "text": "Experience", "link": "#experience" },
       { "text": "Contact", "link": "#contact" }
     ],
@@ -552,7 +552,7 @@
       "text": "Made with",
       "and": "and"
     },
-    "techStack": "Built with React, Tailwind CSS & Modern Tech"
+    "techStack": "Built with Next.js, Tailwind CSS & Modern Tech"
   },
   "navbar": {
     "logoName": "Nitin Kanzariya",
@@ -560,7 +560,7 @@
       { "text": "About", "link": "#about" },
       { "text": "Skills", "link": "#skills" },
       { "text": "Projects", "link": "#projects" },
-      { "text": "Services", "link": "#services" },
+      { "text": "What I Bring", "link": "#what-i-bring" },
       { "text": "Experience", "link": "#experience" },
       { "text": "Contact", "link": "#contact" }
     ],
