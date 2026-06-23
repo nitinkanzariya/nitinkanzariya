@@ -23,7 +23,10 @@ export function About() {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div
+        className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-purple)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -48,15 +51,20 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="glass-strong rounded-3xl p-8 border border-white/10">
+            <div className="glass-strong rounded-3xl p-8 border border-(--color-border)">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/20">
                   <MapPin className="w-6 h-6 md:w-7 md:h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{about.bio.name}</h3>
-                  <p className="text-sm md:text-base text-slate-400 flex flex-wrap items-center gap-1">
-                    Based in <span className="text-slate-300 font-medium">{about.bio.location}</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-(--color-text-heading) mb-1">
+                    {about.bio.name}
+                  </h3>
+                  <p className="text-sm md:text-base text-(--color-text-secondary) flex flex-wrap items-center gap-1">
+                    Based in{" "}
+                    <span className="text-(--color-text-body) font-medium">
+                      {about.bio.location}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -64,7 +72,7 @@ export function About() {
               {about.bio.paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className={`text-slate-300 leading-relaxed ${
+                  className={`text-(--color-text-body) leading-relaxed ${
                     index < about.bio.paragraphs.length - 1 ? "mb-6" : ""
                   }`}
                 >
@@ -84,11 +92,13 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="glass-strong rounded-xl p-4 border border-white/10 text-center"
+                    className="glass-strong rounded-xl p-4 border border-(--color-border) text-center"
                   >
                     <Icon className="w-8 h-8 text-blue-400 mx-auto mb-2" />
                     <div className="gradient-text">{stat.value}</div>
-                    <p className="text-xs text-slate-400 mt-1">{stat.label}</p>
+                    <p className="text-xs text-(--color-text-secondary) mt-1">
+                      {stat.label}
+                    </p>
                   </motion.div>
                 );
               })}
@@ -103,7 +113,9 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <h3 className="text-white mb-6">Professional Journey</h3>
+            <h3 className="text-(--color-text-heading) mb-6">
+              Professional Journey
+            </h3>
 
             {experience.items.slice(0, 3).map((exp, index) => (
               <motion.div
@@ -113,16 +125,18 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
-                className="glass-strong rounded-2xl p-6 border border-white/10 group hover:border-white/20 transition-all"
+                className="glass-strong rounded-2xl p-6 border border-(--color-border) group hover:border-(--color-border-hover) transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h4 className="text-white group-hover:text-blue-400 transition-colors">
+                    <h4 className="text-(--color-text-heading) group-hover:text-blue-400 transition-colors">
                       {exp.role}
                     </h4>
-                    <p className="text-slate-400 mt-1">{exp.company}</p>
+                    <p className="text-(--color-text-secondary) mt-1">
+                      {exp.company}
+                    </p>
                   </div>
-                  <span className="text-sm text-slate-500 glass px-3 py-1 rounded-full">
+                  <span className="text-sm text-(--color-text-muted) glass px-3 py-1 rounded-full">
                     {exp.period}
                   </span>
                 </div>
@@ -134,13 +148,17 @@ export function About() {
             ))}
 
             {/* Key Strengths */}
-            <div className="glass-strong rounded-2xl p-6 border border-white/10 mt-8">
-              <h4 className="text-white mb-4">Key Strengths</h4>
+            <div className="glass-strong rounded-2xl p-6 border border-(--color-border) mt-8">
+              <h4 className="text-(--color-text-heading) mb-4">
+                Key Strengths
+              </h4>
               <div className="space-y-3">
                 {about.strengths.map((strength, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-blue-400 to-purple-600" />
-                    <span className="text-slate-300 text-sm">{strength}</span>
+                    <span className="text-(--color-text-body) text-sm">
+                      {strength}
+                    </span>
                   </div>
                 ))}
               </div>

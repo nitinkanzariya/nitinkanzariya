@@ -13,7 +13,10 @@ export function Experience() {
   return (
     <section id="experience" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div
+        className="absolute top-1/2 right-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-blue)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -27,7 +30,7 @@ export function Experience() {
             {experience.sectionTitle}
           </span>
           <h2 className="mt-4 gradient-text">{experience.headline}</h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-(--color-text-secondary) max-w-2xl mx-auto">
             {experience.description}
           </p>
         </motion.div>
@@ -52,9 +55,9 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass-strong rounded-3xl p-8 border border-white/10"
+              className="glass-strong rounded-3xl p-8 border border-(--color-border)"
             >
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-(--color-text-heading) mb-6 flex items-center gap-2">
                 <Award className="w-5 h-5 text-purple-400" />
                 Certifications
               </h3>
@@ -65,7 +68,7 @@ export function Experience() {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all group border border-transparent hover:border-white/5"
+                    className="flex items-start gap-4 p-4 rounded-xl hover:bg-(--color-card-hover-bg) transition-all group border border-transparent hover:border-(--color-border)"
                   >
                     <div
                       className={`p-2 rounded-lg bg-linear-to-r ${cert.gradient} bg-opacity-20 shrink-0`}
@@ -73,10 +76,10 @@ export function Experience() {
                       <Award className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white font-medium group-hover:text-purple-400 transition-colors">
+                      <h4 className="text-(--color-text-heading) font-medium group-hover:text-purple-400 transition-colors">
                         {cert.title}
                       </h4>
-                      <p className="text-sm text-slate-400 mt-1">
+                      <p className="text-sm text-(--color-text-secondary) mt-1">
                         {cert.issuer}
                       </p>
                     </div>
@@ -96,7 +99,7 @@ export function Experience() {
           className="text-center mt-12 flex flex-col md:flex-row items-center justify-center gap-4"
         >
           <ResumeModal resumeLink={experience.resumeLink}>
-            <button className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group cursor-pointer focus:outline-none">
+            <button className="inline-block px-8 py-4 rounded-full glass-strong border border-(--color-border-hover) text-(--color-text-heading) hover:bg-(--color-card-hover-bg) transition-all group cursor-pointer focus:outline-none">
               <span className="flex items-center gap-2">
                 <Eye className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 View Resume
@@ -106,7 +109,7 @@ export function Experience() {
 
           <Link
             href="/experience"
-            className="inline-block px-8 py-4 rounded-full glass-strong border border-white/20 text-white hover:bg-white/10 transition-all group"
+            className="inline-block px-8 py-4 rounded-full glass-strong border border-(--color-border-hover) text-(--color-text-heading) hover:bg-(--color-card-hover-bg) transition-all group"
           >
             <span className="flex items-center gap-2">
               View Full Experience
@@ -143,33 +146,35 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
           index % 2 === 0 ? "md:right-0" : "md:left-0"
         } top-8 w-4 h-4 rounded-full bg-linear-to-r ${
           item.gradient
-        } border-4 border-dark-bg md:translate-x-0 ${
+        } border-4 border-(--color-timeline-dot-border) md:translate-x-0 ${
           index % 2 === 0 ? "md:translate-x-1/2" : "md:-translate-x-1/2"
         }`}
       />
 
       {/* Content Card */}
-      <div className="ml-8 md:ml-0 glass-strong rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all group">
+      <div className="ml-8 md:ml-0 glass-strong rounded-3xl p-8 border border-(--color-border) hover:border-(--color-border-hover) transition-all group">
         {/* Header */}
         <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
           <div className="flex-1">
-            <h3 className="text-white group-hover:text-blue-400 transition-colors mb-2">
+            <h3 className="text-(--color-text-heading) group-hover:text-blue-400 transition-colors mb-2">
               {item.role}
             </h3>
-            <div className="flex items-center gap-2 text-slate-400 mb-1">
+            <div className="flex items-center gap-2 text-(--color-text-secondary) mb-1">
               <Briefcase className="w-4 h-4" />
               <span>{item.company}</span>
             </div>
-            <div className="text-sm text-slate-500">{item.location}</div>
+            <div className="text-sm text-(--color-text-muted)">
+              {item.location}
+            </div>
           </div>
           <div className="flex items-center gap-2 glass px-4 py-2 rounded-full text-sm">
             <Calendar className="w-4 h-4 text-blue-400" />
-            <span className="text-slate-300">{item.period}</span>
+            <span className="text-(--color-text-body)">{item.period}</span>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-slate-400 mb-4">{item.description}</p>
+        <p className="text-(--color-text-secondary) mb-4">{item.description}</p>
 
         {/* Achievements */}
         <div className="space-y-2">
@@ -178,7 +183,9 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
               <div
                 className={`mt-1.5 w-1.5 h-1.5 rounded-full bg-linear-to-r ${item.gradient} shrink-0`}
               />
-              <span className="text-sm text-slate-300">{achievement}</span>
+              <span className="text-sm text-(--color-text-body)">
+                {achievement}
+              </span>
             </div>
           ))}
         </div>
@@ -199,7 +206,7 @@ function ExperienceCard({ item, index }: { item: any; index: number }) {
               <Link
                 key={i}
                 href={`/tech/${encodeURIComponent(tech)}`}
-                className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 hover:text-white transition-colors"
+                className="text-xs px-3 py-1 rounded-full bg-(--color-tag-bg) text-(--color-tag-text) border border-(--color-border) hover:bg-(--color-card-hover-bg) hover:text-(--color-text-heading) transition-colors"
               >
                 {tech}
               </Link>

@@ -54,7 +54,9 @@ export function Contact() {
         }, 5000);
       } else {
         setStatus("error");
-        setStatusMessage(data.error || "Something went wrong. Please try again.");
+        setStatusMessage(
+          data.error || "Something went wrong. Please try again.",
+        );
         setTimeout(() => {
           setStatus("idle");
           setStatusMessage("");
@@ -62,7 +64,9 @@ export function Contact() {
       }
     } catch {
       setStatus("error");
-      setStatusMessage("Network error. Please check your connection and try again.");
+      setStatusMessage(
+        "Network error. Please check your connection and try again.",
+      );
       setTimeout(() => {
         setStatus("idle");
         setStatusMessage("");
@@ -71,7 +75,7 @@ export function Contact() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -103,8 +107,14 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div
+        className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-purple)" }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-blue)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -118,7 +128,7 @@ export function Contact() {
             {contact.sectionTitle}
           </span>
           <h2 className="mt-4 gradient-text">{contact.headline}</h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-(--color-text-secondary) max-w-2xl mx-auto">
             {contact.description}
           </p>
         </motion.div>
@@ -132,8 +142,10 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">{contact.infoTitle}</h3>
+            <div className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-(--color-border)">
+              <h3 className="text-xl md:text-2xl font-bold text-(--color-text-heading) mb-6">
+                {contact.infoTitle}
+              </h3>
               <div className="space-y-6">
                 {contact.infoItems.map((info) => {
                   const Icon = getIcon(info.icon);
@@ -147,10 +159,10 @@ export function Contact() {
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1 overflow-hidden">
-                        <p className="text-xs sm:text-sm text-slate-400 mb-1">
+                        <p className="text-xs sm:text-sm text-(--color-text-secondary) mb-1">
                           {info.label}
                         </p>
-                        <p className="text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors break-all sm:break-normal">
+                        <p className="text-sm sm:text-base text-(--color-text-heading) group-hover:text-blue-400 transition-colors break-all sm:break-normal">
                           {info.value}
                         </p>
                       </div>
@@ -160,18 +172,20 @@ export function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-slate-400 mb-4">{contact.socialTitle}</p>
+              <div className="mt-8 pt-8 border-t border-(--color-border)">
+                <p className="text-(--color-text-secondary) mb-4">
+                  {contact.socialTitle}
+                </p>
                 <div className="flex gap-3">
                   {contact.socialLinks.map((social) => {
                     const SocialIcon = getIcon(
                       social.icon === "github"
                         ? "Github"
                         : social.icon === "linkedin"
-                        ? "Linkedin"
-                        : social.icon === "twitter"
-                        ? "Twitter"
-                        : "Instagram"
+                          ? "Linkedin"
+                          : social.icon === "twitter"
+                            ? "Twitter"
+                            : "Instagram",
                     );
                     return (
                       <motion.a
@@ -180,10 +194,10 @@ export function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1, y: -2 }}
-                        className="w-12 h-12 rounded-xl glass border border-white/10 flex items-center justify-center hover:border-white/20 transition-all group"
+                        className="w-12 h-12 rounded-xl glass border border-(--color-border) flex items-center justify-center hover:border-(--color-border-hover) transition-all group"
                         aria-label={social.platform}
                       >
-                        <SocialIcon className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+                        <SocialIcon className="w-5 h-5 text-(--color-text-muted) group-hover:text-(--color-text-heading) transition-colors" />
                       </motion.a>
                     );
                   })}
@@ -197,13 +211,15 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10"
+              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-(--color-border)"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-white">Available for Work</span>
+                <span className="text-(--color-text-heading)">
+                  Available for Work
+                </span>
               </div>
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-(--color-text-secondary)">
                 Currently accepting new projects and freelance opportunities.
                 Let&apos;s create something amazing together!
               </p>
@@ -220,14 +236,14 @@ export function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10"
+              className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-(--color-border)"
             >
               <div className="space-y-6">
                 {/* Name */}
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-sm text-slate-300 mb-2"
+                    className="block text-sm text-(--color-text-body) mb-2"
                   >
                     {contact.form.nameLabel}
                   </label>
@@ -239,7 +255,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === "loading"}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-xl bg-(--color-input-bg) border border-(--color-border) text-(--color-text-primary) placeholder-(--color-text-muted) focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.namePlaceholder}
                   />
                 </div>
@@ -248,7 +264,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="block text-sm text-slate-300 mb-2"
+                    className="block text-sm text-(--color-text-body) mb-2"
                   >
                     {contact.form.emailLabel}
                   </label>
@@ -260,7 +276,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === "loading"}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-xl bg-(--color-input-bg) border border-(--color-border) text-(--color-text-primary) placeholder-(--color-text-muted) focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.emailPlaceholder}
                   />
                 </div>
@@ -269,7 +285,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="contact-subject"
-                    className="block text-sm text-slate-300 mb-2"
+                    className="block text-sm text-(--color-text-body) mb-2"
                   >
                     {contact.form.subjectLabel}
                   </label>
@@ -281,7 +297,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     disabled={status === "loading"}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-xl bg-(--color-input-bg) border border-(--color-border) text-(--color-text-primary) placeholder-(--color-text-muted) focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-50"
                     placeholder={contact.form.subjectPlaceholder}
                   />
                 </div>
@@ -290,7 +306,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="block text-sm text-slate-300 mb-2"
+                    className="block text-sm text-(--color-text-body) mb-2"
                   >
                     {contact.form.messageLabel}
                   </label>
@@ -302,7 +318,7 @@ export function Contact() {
                     required
                     rows={6}
                     disabled={status === "loading"}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-xl bg-(--color-input-bg) border border-(--color-border) text-(--color-text-primary) placeholder-(--color-text-muted) focus:outline-none focus:border-blue-500 transition-colors resize-none disabled:opacity-50"
                     placeholder={contact.form.messagePlaceholder}
                   />
                 </div>

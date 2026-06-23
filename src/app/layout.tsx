@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
@@ -47,7 +48,9 @@ export const metadata: Metadata = {
     "Ahmedabad",
     "India",
   ],
-  authors: [{ name: "Nitin Kanzariya", url: "https://nitinkanzariya.vercel.app" }],
+  authors: [
+    { name: "Nitin Kanzariya", url: "https://nitinkanzariya.vercel.app" },
+  ],
   creator: "Nitin Kanzariya",
   publisher: "Nitin Kanzariya",
   alternates: {
@@ -94,15 +97,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-dark-bg text-white">
-        <JsonLd />
-        <CustomCursor />
-        <CursorSpotlight />
-        <ScrollToTop />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+    <html
+      lang="en"
+      className={`${sora.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-(--color-bg) text-(--color-text-primary) transition-colors duration-300">
+        <ThemeProvider>
+          <JsonLd />
+          <CustomCursor />
+          <CursorSpotlight />
+          <ScrollToTop />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

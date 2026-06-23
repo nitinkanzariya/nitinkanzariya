@@ -19,12 +19,12 @@ export function ResumeModal({
 }) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
-      <DialogContent className="max-w-5xl w-full h-[90vh] flex flex-col p-0 glass-strong border-white/20 gap-0 overflow-hidden bg-dark-bg/95">
-        <DialogHeader className="p-4 sm:px-6 border-b border-white/10 flex flex-row items-center justify-between">
-          <DialogTitle className="text-white text-xl">My Resume</DialogTitle>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="max-w-5xl w-full h-[90vh] flex flex-col p-0 glass-strong border-(--color-border) gap-0 overflow-hidden bg-(--color-bg)/95">
+        <DialogHeader className="p-4 sm:px-6 border-b border-(--color-border) flex flex-row items-center justify-between">
+          <DialogTitle className="text-(--color-text-heading) text-xl">
+            My Resume
+          </DialogTitle>
           <div className="mr-8">
             <a
               href={resumeLink}
@@ -36,7 +36,7 @@ export function ResumeModal({
             </a>
           </div>
         </DialogHeader>
-        <div className="flex-1 w-full relative bg-white/5">
+        <div className="flex-1 w-full relative bg-(--color-surface)">
           <iframe
             src={`${resumeLink}#toolbar=0&navpanes=0`}
             className="w-full h-full border-0"

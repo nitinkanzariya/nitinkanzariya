@@ -27,7 +27,7 @@ export default function ProjectDetailClient() {
   if (!project) {
     return (
       <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center justify-center">
-        <div className="text-slate-400">Loading...</div>
+        <div className="text-(--color-text-secondary)">Loading...</div>
       </div>
     );
   }
@@ -36,7 +36,7 @@ export default function ProjectDetailClient() {
     <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Link
         href="/projects"
-        className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-(--color-text-secondary) hover:text-(--color-text-heading) transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Projects
@@ -48,7 +48,7 @@ export default function ProjectDetailClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-(--color-text-heading) mb-6">
             {project.title}
           </h1>
 
@@ -58,7 +58,7 @@ export default function ProjectDetailClient() {
               <Link
                 key={tag}
                 href={`/tech/${encodeURIComponent(tag)}`}
-                className="text-sm font-medium px-4 py-2 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
+                className="text-sm font-medium px-4 py-2 rounded-full bg-(--color-tag-bg) text-(--color-tag-text) border border-(--color-border) hover:bg-(--color-card-hover-bg) transition-colors"
               >
                 {tag}
               </Link>
@@ -83,7 +83,7 @@ export default function ProjectDetailClient() {
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-full glass-strong border border-white/20 text-white font-medium hover:bg-white/10 transition-all"
+                className="flex items-center gap-2 px-6 py-3 rounded-full glass-strong border border-(--color-border-hover) text-(--color-text-heading) font-medium hover:bg-(--color-card-hover-bg) transition-all"
               >
                 <Github className="w-5 h-5" />
                 Source Code
@@ -97,7 +97,7 @@ export default function ProjectDetailClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden mb-16 border border-white/10 shadow-2xl"
+          className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden mb-16 border border-(--color-border) shadow-2xl"
         >
           <div
             className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-20`}
@@ -118,17 +118,17 @@ export default function ProjectDetailClient() {
             className="md:col-span-2 space-y-8"
           >
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-(--color-text-heading) mb-4 flex items-center gap-2">
                 Overview
               </h2>
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <p className="text-(--color-text-body) text-lg leading-relaxed">
                 {project.description}
               </p>
             </section>
 
             {project.features && project.features.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-(--color-text-heading) mb-6 flex items-center gap-2">
                   Key Features
                 </h2>
                 <div className="space-y-4">
@@ -139,12 +139,12 @@ export default function ProjectDetailClient() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-4 p-4 rounded-2xl glass border border-white/5"
+                      className="flex items-start gap-4 p-4 rounded-2xl glass border border-(--color-border)"
                     >
-                      <div className={`mt-1 text-blue-400 shrink-0`}>
+                      <div className="mt-1 text-blue-400 shrink-0">
                         <CheckCircle2 className="w-5 h-5" />
                       </div>
-                      <p className="text-slate-300 leading-relaxed">
+                      <p className="text-(--color-text-body) leading-relaxed">
                         {feature}
                       </p>
                     </motion.div>
@@ -154,21 +154,23 @@ export default function ProjectDetailClient() {
             )}
           </motion.div>
 
-          {/* Sidebar / Extra info if needed */}
+          {/* Sidebar / Extra info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="space-y-8"
           >
-            <div className="p-8 rounded-3xl glass-strong border border-white/10">
-              <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
+            <div className="p-8 rounded-3xl glass-strong border border-(--color-border)">
+              <h3 className="text-xl font-bold text-(--color-text-heading) mb-4">
+                Tech Stack
+              </h3>
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map((tag: string) => (
                   <Link
                     key={tag}
                     href={`/tech/${encodeURIComponent(tag)}`}
-                    className="text-sm font-medium px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
+                    className="text-sm font-medium px-3 py-1.5 rounded-full bg-(--color-tag-bg) text-(--color-tag-text) border border-(--color-border) hover:bg-(--color-card-hover-bg) transition-colors"
                   >
                     {tag}
                   </Link>
@@ -178,7 +180,7 @@ export default function ProjectDetailClient() {
                     <Link
                       key={library}
                       href={`/tech/${encodeURIComponent(library)}`}
-                      className="text-sm font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
+                      className="text-sm font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
                     >
                       {library}
                     </Link>

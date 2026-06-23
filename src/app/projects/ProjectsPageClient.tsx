@@ -13,7 +13,7 @@ export default function ProjectsPageClient() {
     <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-(--color-text-secondary) hover:text-(--color-text-heading) transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Home
@@ -28,7 +28,7 @@ export default function ProjectsPageClient() {
         <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
           All Projects
         </h1>
-        <p className="text-slate-400 max-w-2xl mx-auto">
+        <p className="text-(--color-text-secondary) max-w-2xl mx-auto">
           {projects.description}
         </p>
       </motion.div>
@@ -43,7 +43,7 @@ export default function ProjectsPageClient() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="group"
           >
-            <div className="glass-strong rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all flex flex-col md:flex-row">
+            <div className="glass-strong rounded-3xl overflow-hidden border border-(--color-border) hover:border-(--color-border-hover) transition-all flex flex-col md:flex-row">
               {/* Image Section */}
               <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
                 <div
@@ -103,17 +103,17 @@ export default function ProjectsPageClient() {
                       href={`/projects/${project.id}`}
                       className="inline-block"
                     >
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors cursor-pointer">
+                      <h3 className="text-2xl md:text-3xl font-bold text-(--color-text-heading) mb-4 group-hover:text-blue-400 transition-colors cursor-pointer">
                         {project.title}
                       </h3>
                     </Link>
                   ) : (
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-2xl md:text-3xl font-bold text-(--color-text-heading) mb-4 group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
                   )}
 
-                  <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                  <p className="text-(--color-text-body) text-lg leading-relaxed mb-6">
                     {project.description}
                   </p>
 
@@ -122,7 +122,7 @@ export default function ProjectsPageClient() {
                       <Link
                         key={tag}
                         href={`/tech/${encodeURIComponent(tag)}`}
-                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10 transition-colors"
+                        className="text-xs font-medium px-3 py-1.5 rounded-full bg-(--color-tag-bg) text-(--color-tag-text) border border-(--color-border) hover:bg-(--color-card-hover-bg) transition-colors"
                       >
                         {tag}
                       </Link>

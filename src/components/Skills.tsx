@@ -26,8 +26,14 @@ export function Skills() {
   return (
     <section id="skills" className="relative py-24 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div
+        className="absolute top-1/2 left-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-blue)" }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-purple)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -42,12 +48,12 @@ export function Skills() {
           </span>
           <h2 className="mt-4 gradient-text">{skills.headline}</h2>
           <div className="h-1 w-24 mx-auto mt-2 bg-linear-to-r from-blue-500 to-purple-500 rounded-full" />
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-(--color-text-secondary) max-w-2xl mx-auto">
             {skills.description}
           </p>
         </motion.div>
 
-        {/* Categorized Tech Stack Grid — replaces percentage bars */}
+        {/* Categorized Tech Stack Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {skills.categories.map((category, categoryIndex) => {
             const Icon = getIcon(category.icon);
@@ -58,7 +64,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ amount: 0.2 }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all group"
+                className="glass-strong rounded-2xl md:rounded-3xl p-6 md:p-8 border border-(--color-border) hover:border-(--color-border-hover) transition-all group"
               >
                 {/* Header */}
                 <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-6">
@@ -67,12 +73,12 @@ export function Skills() {
                   >
                     <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white leading-tight">
+                  <h3 className="text-lg md:text-xl font-semibold text-(--color-text-heading) leading-tight">
                     {category.title}
                   </h3>
                 </div>
 
-                {/* Tech Grid — clean cells with name only, no fake percentages */}
+                {/* Tech Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {category.items.map((skill, index) => (
                     <motion.div
@@ -88,13 +94,13 @@ export function Skills() {
                     >
                       <Link
                         href={`/tech/${encodeURIComponent(skill.name)}`}
-                        className={`relative block px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all cursor-pointer text-center group/item`}
+                        className="relative block px-3 py-2.5 rounded-xl bg-(--color-tag-bg) border border-(--color-border) hover:border-(--color-border-hover) transition-all cursor-pointer text-center group/item"
                       >
                         {/* Subtle gradient glow on hover */}
                         <div
                           className={`absolute inset-0 rounded-xl bg-linear-to-br ${category.color} opacity-0 group-hover/item:opacity-10 transition-opacity`}
                         />
-                        <span className="relative text-sm text-slate-300 font-medium group-hover/item:text-white transition-colors">
+                        <span className="relative text-sm text-(--color-text-body) font-medium group-hover/item:text-(--color-text-heading) transition-colors">
                           {skill.name}
                         </span>
                       </Link>
@@ -114,16 +120,15 @@ export function Skills() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="text-slate-400 mb-6">Also experienced with:</p>
+          <p className="text-(--color-text-secondary) mb-6">
+            Also experienced with:
+          </p>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.otherSkills.map((tag: string) => (
-              <motion.div
-                key={tag}
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
+              <motion.div key={tag} whileHover={{ scale: 1.05, y: -2 }}>
                 <Link
                   href={`/tech/${encodeURIComponent(tag)}`}
-                  className="glass block px-4 py-2 rounded-full text-sm text-slate-300 border border-white/10 hover:border-white/20 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                  className="glass block px-4 py-2 rounded-full text-sm text-(--color-text-body) border border-(--color-border) hover:border-(--color-border-hover) hover:text-(--color-text-heading) hover:bg-(--color-card-hover-bg) transition-all cursor-pointer"
                 >
                   {tag}
                 </Link>

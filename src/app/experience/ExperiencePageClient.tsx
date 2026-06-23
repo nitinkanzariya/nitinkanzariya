@@ -12,7 +12,7 @@ export default function ExperiencePageClient() {
     <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-(--color-text-secondary) hover:text-(--color-text-heading) transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Home
@@ -27,7 +27,7 @@ export default function ExperiencePageClient() {
         <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
           Professional Experience
         </h1>
-        <p className="text-slate-400 max-w-2xl mx-auto">
+        <p className="text-(--color-text-secondary) max-w-2xl mx-auto">
           {experience.description}
         </p>
       </motion.div>
@@ -42,7 +42,7 @@ export default function ExperiencePageClient() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="relative"
           >
-            <div className="glass-strong rounded-3xl p-8 md:p-12 border border-white/10 hover:border-white/20 transition-all group relative overflow-hidden">
+            <div className="glass-strong rounded-3xl p-8 md:p-12 border border-(--color-border) hover:border-(--color-border-hover) transition-all group relative overflow-hidden">
               {/* Background Gradient */}
               <div
                 className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${item.gradient} opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2`}
@@ -50,7 +50,7 @@ export default function ExperiencePageClient() {
 
               <div className="relative z-10">
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 border-b border-white/5 pb-8">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8 border-b border-(--color-border) pb-8">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div
@@ -58,18 +58,20 @@ export default function ExperiencePageClient() {
                       >
                         <Briefcase className="w-6 h-6 text-white" />
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                      <h2 className="text-2xl md:text-3xl font-bold text-(--color-text-heading) group-hover:text-blue-400 transition-colors">
                         {item.role}
                       </h2>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-slate-400">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-(--color-text-secondary)">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-lg text-slate-200">
+                        <span className="font-semibold text-lg text-(--color-text-body)">
                           {item.company}
                         </span>
                       </div>
-                      <span className="hidden sm:block text-slate-600">•</span>
+                      <span className="hidden sm:block text-(--color-text-muted)">
+                        •
+                      </span>
                       <div className="flex items-center gap-2">
                         <svg
                           className="w-4 h-4"
@@ -97,7 +99,7 @@ export default function ExperiencePageClient() {
 
                   <div className="flex items-center gap-2 glass px-6 py-3 rounded-full shrink-0">
                     <Calendar className="w-5 h-5 text-blue-400" />
-                    <span className="text-white font-medium">
+                    <span className="text-(--color-text-heading) font-medium">
                       {item.period}
                     </span>
                   </div>
@@ -110,7 +112,7 @@ export default function ExperiencePageClient() {
                       <h4 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3">
                         Overview
                       </h4>
-                      <p className="text-slate-300 leading-relaxed text-lg">
+                      <p className="text-(--color-text-body) leading-relaxed text-lg">
                         {item.description}
                       </p>
                     </div>
@@ -125,7 +127,7 @@ export default function ExperiencePageClient() {
                             <div
                               className={`mt-2 w-2 h-2 rounded-full bg-linear-to-r ${item.gradient} shrink-0`}
                             />
-                            <span className="text-slate-300 leading-relaxed">
+                            <span className="text-(--color-text-body) leading-relaxed">
                               {achievement}
                             </span>
                           </div>
@@ -135,9 +137,9 @@ export default function ExperiencePageClient() {
                   </div>
 
                   {/* Tech stack sidebar */}
-                  <div className="hidden md:flex flex-col justify-between border-l border-white/5 pl-8">
+                  <div className="hidden md:flex flex-col justify-between border-l border-(--color-border) pl-8">
                     <div className="space-y-4">
-                      <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                      <h4 className="text-sm font-semibold text-(--color-text-muted) uppercase tracking-wider">
                         Skills & Tech
                       </h4>
                       <div className="flex flex-wrap gap-2">
@@ -145,12 +147,7 @@ export default function ExperiencePageClient() {
                           <Link
                             key={i}
                             href={`/tech/${encodeURIComponent(tech)}`}
-                            className="px-3 py-1 rounded-full text-xs font-medium text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
-                            style={{
-                              borderColor: "rgba(255,255,255,0.1)",
-                              backgroundColor: "rgba(255,255,255,0.05)",
-                              border: "1px solid rgba(255,255,255,0.1)",
-                            }}
+                            className="px-3 py-1 rounded-full text-xs font-medium text-(--color-tag-text) bg-(--color-tag-bg) border border-(--color-border) hover:bg-(--color-card-hover-bg) hover:text-(--color-text-heading) transition-colors"
                           >
                             {tech}
                           </Link>
@@ -159,12 +156,7 @@ export default function ExperiencePageClient() {
                           <Link
                             key={`lib-${i}`}
                             href={`/tech/${encodeURIComponent(library)}`}
-                            className="px-3 py-1 rounded-full text-xs font-medium text-blue-300 hover:bg-blue-500/20 transition-colors"
-                            style={{
-                              borderColor: "rgba(59,130,246,0.2)",
-                              backgroundColor: "rgba(59,130,246,0.1)",
-                              border: "1px solid rgba(59,130,246,0.2)",
-                            }}
+                            className="px-3 py-1 rounded-full text-xs font-medium text-blue-400 bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
                           >
                             {library}
                           </Link>

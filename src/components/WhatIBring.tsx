@@ -25,7 +25,10 @@ export function WhatIBring() {
   return (
     <section id="what-i-bring" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div
+        className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-purple)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -39,7 +42,7 @@ export function WhatIBring() {
             What I Bring
           </span>
           <h2 className="mt-4 gradient-text">Core Engineering Strengths</h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-(--color-text-secondary) max-w-2xl mx-auto">
             Deep expertise across the full stack — from interactive frontends to
             production AI pipelines and real-time infrastructure
           </p>
@@ -57,7 +60,7 @@ export function WhatIBring() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="glass-strong rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all h-full">
+                <div className="glass-strong rounded-3xl p-8 border border-(--color-border) hover:border-(--color-border-hover) transition-all h-full">
                   {/* Icon */}
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
@@ -68,12 +71,12 @@ export function WhatIBring() {
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-white mb-4 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-(--color-text-heading) mb-4 group-hover:text-blue-400 transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-400 leading-relaxed mb-6">
+                  <p className="text-(--color-text-secondary) leading-relaxed mb-6">
                     {service.description}
                   </p>
 
@@ -84,7 +87,7 @@ export function WhatIBring() {
                         <div
                           className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${service.gradient}`}
                         />
-                        <span className="text-sm text-slate-300">
+                        <span className="text-sm text-(--color-text-body)">
                           {feature}
                         </span>
                       </div>
@@ -107,10 +110,12 @@ export function WhatIBring() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center glass-strong rounded-3xl p-12 border border-white/10"
+          className="mt-16 text-center glass-strong rounded-3xl p-12 border border-(--color-border)"
         >
-          <h3 className="text-white mb-4">{services.cta.headline}</h3>
-          <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
+          <h3 className="text-(--color-text-heading) mb-4">
+            {services.cta.headline}
+          </h3>
+          <p className="text-(--color-text-secondary) mb-8 max-w-2xl mx-auto">
             {services.cta.description}
           </p>
           <a

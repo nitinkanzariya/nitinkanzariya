@@ -17,9 +17,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative py-12 border-t border-white/10 overflow-hidden">
+    <footer className="relative py-12 border-t border-(--color-border) overflow-hidden">
       {/* Background */}
-      <div className="absolute top-0 left-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      <div
+        className="absolute top-0 left-1/2 w-96 h-96 rounded-full blur-3xl"
+        style={{ backgroundColor: "var(--color-orb-bg-blue)" }}
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -34,20 +37,24 @@ export function Footer() {
               </div>
               <span className="gradient-text">{footer.logoName}</span>
             </Link>
-            <p className="text-slate-400 text-sm mb-4">{footer.description}</p>
+            <p className="text-(--color-text-secondary) text-sm mb-4">
+              {footer.description}
+            </p>
           </div>
 
           {/* Quick Links & Contact Info */}
           <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
             {/* Quick Links */}
             <div>
-              <h5 className="text-white mb-4">{footer.quickLinksTitle}</h5>
+              <h5 className="text-(--color-text-heading) mb-4">
+                {footer.quickLinksTitle}
+              </h5>
               <ul className="space-y-2">
                 {footer.quickLinks.map((link) => (
                   <li key={link.link}>
                     <Link
                       href={getLinkHref(link.link)}
-                      className="text-slate-400 hover:text-white text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
+                      className="text-(--color-text-secondary) hover:text-(--color-text-heading) text-sm transition-colors inline-block hover:translate-x-1 transform duration-200"
                     >
                       {link.text}
                     </Link>
@@ -58,13 +65,15 @@ export function Footer() {
 
             {/* Contact Info */}
             <div>
-              <h5 className="text-white mb-4">{footer.contactInfoTitle}</h5>
-              <ul className="space-y-2 text-sm text-slate-400">
+              <h5 className="text-(--color-text-heading) mb-4">
+                {footer.contactInfoTitle}
+              </h5>
+              <ul className="space-y-2 text-sm text-(--color-text-secondary)">
                 <li>{footer.contactInfo.location}</li>
                 <li>
                   <a
                     href={`mailto:${footer.contactInfo.email}`}
-                    className="hover:text-white transition-colors break-all"
+                    className="hover:text-(--color-text-heading) transition-colors break-all"
                   >
                     {footer.contactInfo.email}
                   </a>
@@ -72,7 +81,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`tel:${footer.contactInfo.phone}`}
-                    className="hover:text-white transition-colors"
+                    className="hover:text-(--color-text-heading) transition-colors"
                   >
                     {footer.contactInfo.phone}
                   </a>
@@ -83,15 +92,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-(--color-border)">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-slate-400 flex items-center gap-2">
+            <p className="text-sm text-(--color-text-secondary) flex items-center gap-2">
               © {currentYear} {footer.copyright} {footer.madeWith.text}
               <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
               {footer.madeWith.and}
               <Code2 className="w-4 h-4 text-blue-400" />
             </p>
-            <p className="text-sm text-slate-400">{footer.techStack}</p>
+            <p className="text-sm text-(--color-text-secondary)">
+              {footer.techStack}
+            </p>
           </div>
         </div>
       </div>

@@ -15,7 +15,8 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         {/* Gradient Orbs */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: "var(--color-orb-blue)" }}
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],
@@ -28,7 +29,8 @@ export function Hero() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: "var(--color-orb-purple)" }}
           animate={{
             x: [0, -100, 0],
             y: [0, 100, 0],
@@ -42,7 +44,7 @@ export function Hero() {
         />
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
+        <div className="hero-grid-pattern absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -53,10 +55,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-(--color-border)"
             >
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-slate-300">{hero.status}</span>
+              <span className="text-sm text-(--color-text-secondary)">
+                {hero.status}
+              </span>
             </motion.div>
 
             <motion.h1
@@ -65,7 +69,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              <span className="text-white">{hero.title.line1}</span>
+              <span className="text-(--color-text-heading)">
+                {hero.title.line1}
+              </span>
               <br />
               <span className="gradient-text">{hero.title.line2}</span>
             </motion.h1>
@@ -74,7 +80,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl text-(--color-text-secondary) max-w-2xl"
             >
               {hero.description}
             </motion.p>
@@ -94,7 +100,7 @@ export function Hero() {
               </Link>
               <Link
                 href={hero.buttons.secondary.link}
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-white/20 text-white hover:bg-white/10 transition-all text-center text-sm sm:text-base"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-(--color-border-hover) text-(--color-text-heading) hover:bg-(--color-card-hover-bg) transition-all text-center text-sm sm:text-base"
               >
                 {hero.buttons.secondary.text}
               </Link>
@@ -109,7 +115,7 @@ export function Hero() {
             >
               {hero.techIcons.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <div className="flex items-center gap-2 text-slate-400 text-sm sm:text-base">
+                  <div className="flex items-center gap-2 text-(--color-text-secondary) text-sm sm:text-base">
                     {item.icon === "Code" ? (
                       <Code className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                     ) : (
@@ -118,7 +124,7 @@ export function Hero() {
                     <span>{item.label}</span>
                   </div>
                   {index < hero.techIcons.length - 1 && (
-                    <div className="hidden sm:block w-px h-8 bg-white/10 ml-4 sm:ml-6" />
+                    <div className="hidden sm:block w-px h-8 bg-(--color-border) ml-4 sm:ml-6" />
                   )}
                 </div>
               ))}
@@ -137,7 +143,7 @@ export function Hero() {
               <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-purple-600/20 rounded-full blur-3xl animate-pulse" />
 
               {/* Image Container */}
-              <div className="relative glass-strong rounded-3xl overflow-hidden border-2 border-white/10">
+              <div className="relative glass-strong rounded-3xl overflow-hidden border-2 border-(--color-border)">
                 <ImageWithFallback
                   src={hero.image.src}
                   alt={hero.image.alt}
@@ -151,7 +157,7 @@ export function Hero() {
                   key={index}
                   className={`hidden md:block absolute ${
                     index === 0 ? "-right-4 top-1/4" : "-left-4 bottom-1/4"
-                  } glass px-4 py-3 rounded-xl border border-white/10 shadow-xl`}
+                  } glass px-4 py-3 rounded-xl border border-(--color-border) shadow-xl`}
                   animate={{ y: index === 0 ? [0, -10, 0] : [0, 10, 0] }}
                   transition={{
                     duration: 3,
@@ -165,7 +171,9 @@ export function Hero() {
                         card.color === "green" ? "bg-green-400" : "bg-blue-400"
                       } rounded-full animate-pulse`}
                     />
-                    <span className="text-sm">{card.text}</span>
+                    <span className="text-sm text-(--color-text-body)">
+                      {card.text}
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -180,9 +188,9 @@ export function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+        <div className="w-6 h-10 rounded-full border-2 border-(--color-text-muted) flex items-start justify-center p-2">
           <motion.div
-            className="w-1.5 h-1.5 bg-white rounded-full"
+            className="w-1.5 h-1.5 bg-(--color-text-heading) rounded-full"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
